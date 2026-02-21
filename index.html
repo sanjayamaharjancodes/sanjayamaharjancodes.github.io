@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanjaya Maharjan — Lead Software Engineer. Architecture, modernization, and cloud-native delivery. Case studies and consulting.">
+  <title>Sanjaya Maharjan — Portfolio & Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="top-nav" role="banner">
+    <div class="top-nav-inner">
+      <nav class="top-nav-links" id="top-nav-links" aria-label="Main">
+        <a href="#work">Case Studies</a>
+        <a href="#other-projects">More Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Start a Project</a>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+        <span class="theme-toggle-icon theme-icon-light" aria-hidden="true">☀</span>
+        <span class="theme-toggle-icon theme-icon-dark" aria-hidden="true">☽</span>
+      </button>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="top-nav-links"></button>
+    </div>
+  </header>
+
+  <div class="layout">
+  <!-- Left: compact contact (conversion-friendly, muted) -->
+  <aside class="contact-sidebar" aria-label="Contact">
+    <div class="contact-card">
+      <p class="contact-card-label"><span class="contact-icon contact-icon-email" aria-hidden="true">✉</span> Email</p>
+      <a href="mailto:sanjayamaharjan.codes@gmail.com" class="contact-card-link">sanjayamaharjan.codes@gmail.com</a>
+      <p class="contact-card-label"><span class="contact-icon contact-icon-phone" aria-hidden="true">📞</span> Phone</p>
+      <a href="tel:+18483133926" class="contact-card-link contact-card-phone">US: +1 (848) 313-3926</a>
+      <div class="contact-phone-more" id="contact-phone-more" hidden>
+        <a href="tel:+14154390734" class="contact-card-link contact-card-phone">Google Voice: +1 (415) 439-0734</a>
+        <a href="tel:+9779860171049" class="contact-card-link contact-card-phone">Nepal: +977 986-017-1049</a>
+      </div>
+      <button type="button" class="contact-more-numbers-btn" id="contact-more-numbers-btn" aria-expanded="false" aria-controls="contact-phone-more">More numbers</button>
+      <p class="contact-card-label">LinkedIn</p>
+      <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="contact-card-link">linkedin.com/in/sanjaya-maharjan</a>
+      <a href="assets/cv.pdf" class="contact-card-cv" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
+    </div>
+  </aside>
+  <main class="content">
+    <div class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <img src="assets/profile.png" alt="" class="hero-profile-pic" width="96" height="96">
+      <div class="hero-text">
+        <h1 id="hero-heading" class="hero-headline">Sanjaya Maharjan</h1>
+        <p class="hero-sub">Lead Software Engineer · Cloud-Native Systems (since 2012)</p>
+        <p class="hero-value">Designing cloud-native platforms and modernizing legacy systems with measurable performance and reliability gains.</p>
+        <div class="hero-services">Architecture · Modernization · Performance</div>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">View Case Studies</a>
+          <a href="#contact" class="btn btn-secondary">Start a Project</a>
+          <a href="assets/cv.pdf" class="hero-cta-link" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <!-- Impact strip -->
+      <div class="impact-strip" role="list">
+        <div class="impact-block" role="listitem">
+          <span class="impact-title">Enterprise modernization</span>
+          <span class="impact-sub">on-prem → AWS cloud-native</span>
+        </div>
+        <div class="impact-divider" aria-hidden="true"></div>
+        <div class="impact-block" role="listitem">
+          <span class="impact-title">High-traffic performance</span>
+          <span class="impact-sub">load time + throughput optimization</span>
+        </div>
+        <div class="impact-divider" aria-hidden="true"></div>
+        <div class="impact-block" role="listitem">
+          <span class="impact-title">Infrastructure as Code</span>
+          <span class="impact-sub">Terraform + CI/CD (Jenkins/Azure DevOps)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile: compact contact row below hero -->
+    <div class="contact-row-mobile" aria-label="Contact">
+      <a href="mailto:sanjayamaharjan.codes@gmail.com">Email</a>
+      <span class="contact-row-sep" aria-hidden="true">|</span>
+      <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="contact-row-sep" aria-hidden="true">|</span>
+      <a href="tel:+18483133926">Phone</a>
+    </div>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">About</p>
+          <h2 class="section-title">Background</h2>
+          <p class="section-subtitle">Lead Software Engineer with enterprise experience building and modernizing systems since 2012.</p>
+        </header>
+        <div class="section-body">
+          <p class="about-lead">I'm a Lead Software Engineer with enterprise experience building and modernizing systems since 2012. My work spans architecture, full-stack development, and cloud-native delivery—most often with .NET, React/Angular, and AWS—including API contracts, versioning, and production operations.</p>
+          <ul class="about-what">
+            <li>Modernize legacy systems → cloud-native</li>
+            <li>Design microservices &amp; secure APIs</li>
+            <li>Improve performance and reliability at scale</li>
+          </ul>
+          <a href="#contact" class="link-arrow">→ Start a project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies (selected work – star of the site) -->
+    <section class="section works" id="work">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">Case Studies</p>
+          <h2 class="section-title">Selected work</h2>
+          <p class="section-subtitle">A few public-facing projects and platforms I've contributed to.</p>
+        </header>
+        <div class="section-body">
+          <div class="work-grid">
+        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/xZbWQGXP6Kt3StCRsdyEnz39S5LYqRnlzXyMrhaCpHCaxyswEvIViYhsmTNpMrWt2Ulk-b4S3AOx2Mnl1cQizQ.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">LETS (Fontworks)</h3>
+            <p class="work-desc">Font discovery and licensing platform for Fontworks.</p>
+            <p class="work-what">Platform scaling + deployment strategy; font impression &amp; emotion analysis.</p>
+            <div class="work-tags"><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">High traffic</span><span class="chip">OCI</span><span class="chip">CI/CD</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://lets.fontworks.co.jp" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/FS89aUmZj_AL9R1SI6ENUePnNrClsQLJuYu0o3wCqjR8oiAUvT-4x5xoYTm5461hfaAFcWUTK_AYjeNEa0b7BA.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Fontplus</h3>
+            <p class="work-desc">Japanese font subscription and web font service.</p>
+            <p class="work-what">Scalable deployment and full-stack delivery.</p>
+            <div class="work-tags"><span class="chip">PHP</span><span class="chip">Cloudflare</span><span class="chip">OCI</span><span class="chip">AWS</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://fontplus.jp" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/o0-Gw0IxP18-2gits_tfJ_QQu5mKD1Vtn0AGdb5Uac7u6cTNk-RUlbV5IVEhb17Ie6y8GafsqBe_8PsZHZWioA.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Fonts.com</h3>
+            <p class="work-desc">Monotype font store and web font delivery.</p>
+            <p class="work-what">High-traffic storefront; scaling and CI/CD.</p>
+            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://www.fonts.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/4VAP52jkUeYYKtS82Vz0CHx13KDBQP4XbpBf0vAp8qEJB_90d4OCZ28yGqapZgkGOU64Bo4X6SJCbXkmvHLv8A.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Myfonts.com</h3>
+            <p class="work-desc">Font marketplace and licensing.</p>
+            <p class="work-what">CI/CD and infrastructure for marketplace delivery.</p>
+            <div class="work-tags"><span class="chip">AWS</span><span class="chip">CI/CD</span><span class="chip">High traffic</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://www.myfonts.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/isUWqWgAvYgV3vohEPHV5WNf1n5TOQJT9AOVto0aHEZwH6SNGe9gNb2HIxAoO53V5LqxB9j3Z-pdI7MmzUKXIw.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Linotype.com</h3>
+            <p class="work-desc">Typography and font library.</p>
+            <p class="work-what">Backend and delivery for typography platform.</p>
+            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://www.linotype.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/7bnTvBWPqMxcCBf18RCXLRpLl-389yrHl-B3Updo5AUR2P8h5L6l_61d6VopA936bxoyb9HT_Mi6Ft7fepnjIw.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Fontshop.com</h3>
+            <p class="work-desc">Font retail and web font platform.</p>
+            <p class="work-what">High-traffic retail and CDN delivery.</p>
+            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://www.fontshop.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/DDx3cN7afsAMf3hXFjzZnkiMFLJ0KKMDgxnxkpSD7LCo3CKZVJItlnhgyC23zReRUtGI1HOvoPYQ2Ip8NQQgWg.png');">
+          <div class="work-thumb"></div>
+          <div class="work-meta">
+            <h3 class="work-title">Leslinq.com</h3>
+            <p class="work-desc">E‑commerce and inventory platform.</p>
+            <p class="work-what">Payments integration and inventory workflows.</p>
+            <div class="work-tags"><span class="chip">.NET</span><span class="chip">Payments</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://www.leslinq.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="work-card card" style="--thumb: url('assets/collegerecon.png');">
+          <div class="work-thumb work-thumb--contain"></div>
+          <div class="work-meta">
+            <h3 class="work-title">CollegeRecon</h3>
+            <p class="work-desc">College discovery platform for military service members and veterans.</p>
+            <p class="work-what">Full-stack delivery; microservices transition; college search and scholarship tools.</p>
+            <div class="work-tags"><span class="chip">React</span><span class="chip">Angular</span></div>
+            <div class="work-cta-row">
+              <a href="#work" class="work-cta-primary">View details →</a>
+              <a href="https://collegerecon.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Work (enterprise / private) -->
+    <section class="section other-projects" id="other-projects">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">More Work</p>
+          <h2 class="section-title">More work</h2>
+          <p class="section-subtitle">Enterprise systems and internal tools (details available on request). Private/enterprise — summary available.</p>
+        </header>
+        <div class="section-body">
+          <ul class="other-list" role="list">
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-1" id="other-btn-1">
+                <span class="other-name">Research 360</span>
+                <span class="other-meta">Font metadata · Internal platform · React + Next.js + AWS</span>
+              </button>
+              <div id="other-panel-1" class="other-panel" role="region" aria-labelledby="other-btn-1">
+                <ul class="other-bullets">
+                  <li>Scalable deployment and font impression/emotion analysis</li>
+                  <li>Full-stack React, Next.js, NestJS, Node.js, AWS</li>
+                </ul>
+                <div class="other-chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">AWS</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-2" id="other-btn-2">
+                <span class="other-name">HP Workforce Experience Platform</span>
+                <span class="other-meta">Internal platform · Microservices · .NET + React + AWS + Terraform</span>
+              </button>
+              <div id="other-panel-2" class="other-panel" role="region" aria-labelledby="other-btn-2">
+                <ul class="other-bullets">
+                  <li>C#, .NET, React, lazy loading and route preloading</li>
+                  <li>RESTful APIs, OpenAPI/Swagger; Azure DevOps CI/CD</li>
+                </ul>
+                <div class="other-chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Microsite</span><span class="chip">AWS</span><span class="chip">Terraform</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-3" id="other-btn-3">
+                <span class="other-name">Monotype Admin</span>
+                <span class="other-meta">Internal · Admin tooling · .NET + Jenkins + Octopus</span>
+              </button>
+              <div id="other-panel-3" class="other-panel" role="region" aria-labelledby="other-btn-3">
+                <ul class="other-bullets">
+                  <li>Part of Monotype font ecosystem; Jenkins, Octopus</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span><span class="chip">CI/CD</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-4" id="other-btn-4">
+                <span class="other-name">TypeCommerce · Sales Order Cloud</span>
+                <span class="other-meta">Commerce · Enterprise · .NET + AWS</span>
+              </button>
+              <div id="other-panel-4" class="other-panel" role="region" aria-labelledby="other-btn-4">
+                <ul class="other-bullets">
+                  <li>3D Secure, CyberSource; Cloudflare; Docker, Kubernetes</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span><span class="chip">AWS</span><span class="chip">Payment</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-5" id="other-btn-5">
+                <span class="other-name">Unemployment Insurance Web Application</span>
+                <span class="other-meta">Government · Web app · .NET + Angular + AWS</span>
+              </button>
+              <div id="other-panel-5" class="other-panel" role="region" aria-labelledby="other-btn-5">
+                <ul class="other-bullets">
+                  <li>C# .NET Core, API Gateway, Azure DevOps CI/CD</li>
+                  <li>Angular 18 and React; document and profile management</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span><span class="chip">Angular</span><span class="chip">AWS</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-6" id="other-btn-6">
+                <span class="other-name">Alithias Healthcare Analytics</span>
+                <span class="other-meta">Analytics · Internal platform · .NET + React + AWS</span>
+              </button>
+              <div id="other-panel-6" class="other-panel" role="region" aria-labelledby="other-btn-6">
+                <ul class="other-bullets">
+                  <li>Node.js, Angular, RxJS; ASP.NET Core Web APIs</li>
+                </ul>
+                <div class="other-chips"><span class="chip">Angular</span><span class="chip">.NET</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-7" id="other-btn-7">
+                <span class="other-name">Japanese Tobacco Industry Inventory Management</span>
+                <span class="other-meta">Commerce · Enterprise · .NET + SQL</span>
+              </button>
+              <div id="other-panel-7" class="other-panel" role="region" aria-labelledby="other-btn-7">
+                <ul class="other-bullets">
+                  <li>Stored procedures, LINQ; Leslinq.com related</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span><span class="chip">SQL</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-8" id="other-btn-8">
+                <span class="other-name">Banaunu.com</span>
+                <span class="other-meta">Web app · .NET</span>
+              </button>
+              <div id="other-panel-8" class="other-panel" role="region" aria-labelledby="other-btn-8">
+                <ul class="other-bullets">
+                  <li>Grafi Offshore; infrastructure and software blueprints</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-9" id="other-btn-9">
+                <span class="other-name">Financial Risk Management Assistant App</span>
+                <span class="other-meta">Finance · API · C# + Web API</span>
+              </button>
+              <div id="other-panel-9" class="other-panel" role="region" aria-labelledby="other-btn-9">
+                <ul class="other-bullets">
+                  <li>C#, Web API, Entity Framework</li>
+                </ul>
+                <div class="other-chips"><span class="chip">C#</span><span class="chip">Web API</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-10" id="other-btn-10">
+                <span class="other-name">Online Survey App for Bank of Canada</span>
+                <span class="other-meta">Government · Survey · .NET</span>
+              </button>
+              <div id="other-panel-10" class="other-panel" role="region" aria-labelledby="other-btn-10">
+                <ul class="other-bullets">
+                  <li>Associate information management; C#, Web API</li>
+                </ul>
+                <div class="other-chips"><span class="chip">.NET</span></div>
+              </div>
+            </li>
+            <li class="other-item">
+              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-11" id="other-btn-11">
+                <span class="other-name">Subisu Inventory Management System</span>
+                <span class="other-meta">Inventory · Internal · ASP.NET + MSSQL</span>
+              </button>
+              <div id="other-panel-11" class="other-panel" role="region" aria-labelledby="other-btn-11">
+                <ul class="other-bullets">
+                  <li>C#, ASP.NET; MSSQL database objects</li>
+                </ul>
+                <div class="other-chips"><span class="chip">ASP.NET</span><span class="chip">MSSQL</span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Impact -->
+    <section class="section experience" id="experience">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">Experience</p>
+          <h2 class="section-title">Experience &amp; Impact</h2>
+          <p class="section-subtitle">I've led delivery across enterprise platforms, cloud migrations, and high-traffic systems.</p>
+        </header>
+        <div class="section-body">
+          <div class="timeline">
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">May 2024 – Present</span>
+                <span class="exp-company">UBA Solutions (Monotype Partner, Nepal)</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Lead Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Own architecture and delivery for Research 360, LETS, and Fontplus—scalable deployment and font analytics</li>
+                  <li>Full-stack .NET and React on AWS; API contracts and production operations</li>
+                  <li>Bot protection and edge delivery (Cloudflare); monitoring and alerting</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">Microservices</span><span class="chip">AWS</span><span class="chip">React</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">Oct 2024 – March 2025</span>
+                <span class="exp-company">HP Inc, TX</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for HP Workforce Experience Platform; Terraform and Azure DevOps CI/CD</li>
+                  <li>RESTful APIs with OpenAPI/Swagger; React with lazy loading and route preloading</li>
+                  <li>Security: OAuth/JWT and secrets management; performance and observability</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">.NET</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">Oct 2023 – Sep 2024</span>
+                <span class="exp-company">Deloitte, CO</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Led workflow microservices and API Gateway integration; IBM content engine, .NET Core, Azure DevOps CI/CD</li>
+                  <li>Document and profile management; Angular 18 and React—State of Colorado Unemployment Insurance</li>
+                  <li>Architecture ownership for high-availability and secure access (SSO)</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">.NET Core</span><span class="chip">Angular</span><span class="chip">AWS</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">May 2023 – Sep 2023</span>
+                <span class="exp-company">Dwaith Infotech, MN (Remote)</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Owned legacy modernization and .NET microservices handling 1M+ daily requests; React, Redux</li>
+                  <li>Multi-store data (PostgreSQL, MySQL, MongoDB, DynamoDB); AWS/Azure; Docker, Kubernetes</li>
+                  <li>Caching (Redis), async processing, and monitoring/alerting for performance</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">Microservices</span><span class="chip">React</span><span class="chip">Kubernetes</span></div>
+              </div>
+            </article>
+            <div class="exp-older" id="exp-older" hidden>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">April 2018 – May 2023</span>
+                <span class="exp-company">UBA Solutions (Monotype Partner, Nepal)</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Solution Architect / Lead Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Owned AWS scaling (EC2/ASG, ELB, RDS read replicas, S3) for fonts.com, linotype.com, fontshop.com; Jenkins, Octopus CI/CD</li>
+                  <li>Security: 3D Secure, CyberSource, Cloudflare bot protection; Docker, Kubernetes; Angular, React</li>
+                  <li>Performance and reliability: caching, CDN, monitoring and alerting</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">AWS</span><span class="chip">CI/CD</span><span class="chip">Kubernetes</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">Jan 2017 – April 2018</span>
+                <span class="exp-company">Novelty Technology, NC (Nepal)</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Lead Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Led microservices transition and full-stack delivery; Node.js, Angular, RxJS; ASP.NET Core Web APIs</li>
+                  <li>CollegeRecon, Alithias Healthcare Analytics—architecture and API design</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">Angular</span><span class="chip">.NET</span><span class="chip">Azure</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">July 2014 – Oct 2016</span>
+                <span class="exp-company">Grafi Offshore Pvt. Ltd., Nepal</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>Owned infrastructure and software design; stored procedures, LINQ; PayPal, Adyen integrations</li>
+                  <li>Japanese Tobacco Inventory, Leslinq.com, Banaunu.com</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">.NET</span><span class="chip">SQL</span><span class="chip">Payments</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">June 2013 – May 2014</span>
+                <span class="exp-company">Hatra Inc., Nepal</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>API and database design; C#, Web API, Entity Framework—Financial Risk Management App, Bank of Canada Survey</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">C#</span><span class="chip">Web API</span><span class="chip">EF</span></div>
+              </div>
+            </article>
+            <article class="exp-item">
+              <div class="exp-meta">
+                <span class="exp-date">Jan 2012 – April 2013</span>
+                <span class="exp-company">Channakya Software, Nepal</span>
+              </div>
+              <div class="exp-content">
+                <h3 class="exp-role">Software Engineer</h3>
+                <ul class="exp-bullets">
+                  <li>C#, ASP.NET, MSSQL; full SDLC—Subisu Inventory Management System</li>
+                </ul>
+                <div class="exp-chips"><span class="chip">ASP.NET</span><span class="chip">MSSQL</span><span class="chip">SDLC</span></div>
+              </div>
+            </article>
+            </div>
+            <p class="exp-older-wrap">
+              <button type="button" class="btn btn-secondary exp-older-btn" id="exp-older-btn" aria-expanded="false" aria-controls="exp-older">Earlier experience</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="section skills" id="skills">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">Capabilities</p>
+          <h2 class="section-title">Capabilities</h2>
+          <p class="section-subtitle">Backend, frontend, cloud, data, and delivery — what I bring to projects.</p>
+        </header>
+        <div class="section-body">
+          <div class="skills-grid">
+            <div class="skill-card card">
+              <h4 class="skill-card-title">Backend &amp; APIs</h4>
+              <div class="skill-chips">
+                <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Web API</span>
+              </div>
+            </div>
+            <div class="skill-card card">
+              <h4 class="skill-card-title">Frontend</h4>
+              <div class="skill-chips">
+                <span class="chip">React</span><span class="chip">Angular</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">HTML/CSS</span>
+              </div>
+            </div>
+            <div class="skill-card card">
+              <h4 class="skill-card-title">Cloud &amp; DevOps</h4>
+              <div class="skill-chips">
+                <span class="chip">ECS/ECR</span><span class="chip">EC2</span><span class="chip">RDS</span><span class="chip">S3</span><span class="chip">Lambda</span><span class="chip">VPC</span><span class="chip">CloudWatch</span><span class="chip">Route53</span><span class="chip">SQS</span><span class="chip">Terraform</span><span class="chip">CI/CD</span>
+              </div>
+            </div>
+            <div class="skill-card card">
+              <h4 class="skill-card-title">Data</h4>
+              <div class="skill-chips">
+                <span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">DynamoDB</span><span class="chip">Entity Framework</span>
+              </div>
+            </div>
+            <div class="skill-card card">
+              <h4 class="skill-card-title">Delivery</h4>
+              <div class="skill-chips">
+                <span class="chip">Agile</span><span class="chip">Architecture</span><span class="chip">Azure DevOps</span><span class="chip">GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credentials & Certification -->
+    <section class="section education" id="education">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-eyebrow">Credentials</p>
+          <h2 class="section-title">Credentials &amp; Certification</h2>
+          <p class="section-subtitle">Degrees and industry certifications.</p>
+        </header>
+        <div class="section-body">
+          <div class="edu-grid">
+            <div class="edu-card card">
+              <h4 class="edu-name">Bachelor's in Computer Engineering</h4>
+              <p class="edu-meta">Khwopa Engineering College, Nepal</p>
+              <p class="edu-desc">Foundation in software and systems engineering.</p>
+            </div>
+            <div class="edu-card card">
+              <h4 class="edu-name">Master's in Computer Science</h4>
+              <p class="edu-meta">Nepal College of Information and Technology</p>
+              <p class="edu-desc">Advanced study in computer science.</p>
+            </div>
+            <div class="edu-card card">
+              <h4 class="edu-name">AWS Certified Developer – Associate</h4>
+              <p class="edu-meta">Amazon Web Services</p>
+              <p class="edu-desc">Cloud development and delivery.</p>
+              <span class="badge" aria-label="AWS certification">AWS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA (consulting-first, premium) -->
+    <section class="section cta" id="contact">
+      <div class="cta-inner">
+        <div class="section-inner">
+          <div class="cta-card">
+            <div class="cta-card-message">
+              <h2 class="cta-headline">Let's build something reliable.</h2>
+              <p class="cta-supporting">Architecture, modernization, and performance improvements for cloud-native systems.</p>
+            </div>
+            <div class="cta-card-actions">
+              <a href="mailto:sanjayamaharjan.codes@gmail.com?subject=Project%20inquiry%20%E2%80%94%20Sanjaya%20Maharjan" class="cta-btn cta-btn-primary">Start a project</a>
+              <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">LinkedIn</a>
+            </div>
+          </div>
+          <footer class="footer-small">
+            <div class="footer-row">
+              <div class="footer-left">
+                <p class="footer-copy">© 2026 Sanjaya Maharjan</p>
+              </div>
+              <div class="footer-right">
+                <a href="mailto:sanjayamaharjan.codes@gmail.com?subject=Project%20inquiry%20%E2%80%94%20Sanjaya%20Maharjan" class="footer-link">Email</a>
+                <span class="footer-sep" aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+                <span class="footer-sep" aria-hidden="true">·</span>
+                <a href="tel:+18483133926" class="footer-link">Phone</a>
+                <span class="footer-sep" aria-hidden="true">·</span>
+                <a href="assets/cv.pdf" class="footer-link" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+  </div>
+
+  <a href="#hero-heading" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
