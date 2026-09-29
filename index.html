@@ -1,648 +1,546 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="night">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sanjaya Maharjan — Lead Software Engineer. Architecture, modernization, and cloud-native delivery. Case studies and consulting.">
-  <title>Sanjaya Maharjan — Portfolio & Consulting</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sanjaya Maharjan — AI &amp; Cloud Architect</title>
+  <meta name="description" content="Sanjaya Maharjan — AI and cloud architect in Kathmandu. LLM applications, RAG and multi-agent systems on cloud foundations built for Monotype, HP, Deloitte and the State of Colorado since 2012.">
+  <meta name="author" content="Sanjaya Maharjan">
+  <meta name="theme-color" content="#12100e">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sanjaya Maharjan — AI &amp; Cloud Architect">
+  <meta property="og:description" content="LLM apps, RAG and multi-agent systems that hold up in production — on 14 years of cloud architecture.">
+  <meta property="og:image" content="https://sanjayamaharjancodes.github.io/assets/og.jpg">
+  <meta property="og:url" content="https://sanjayamaharjancodes.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312100e'/%3E%3Cg fill='none' stroke='%23e2956b' stroke-width='3'%3E%3Cpath d='M32 10c12 0 22 8 21 20s-9 24-22 23S9 43 11 30s9-20 21-20z'/%3E%3Cpath d='M32 20c7 0 12 5 12 11s-5 13-12 13-11-6-11-12 4-12 11-12z' opacity='.7'/%3E%3Ccircle cx='33' cy='32' r='3.5' fill='%23e2956b' stroke='none'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&family=Martian+Mono:wdth,wght@75..112.5,300..600&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    /* Theme before first paint; JS-gated motion states with a failsafe so content never stays hidden. */
+    (function () {
+      var d = document.documentElement;
+      try { var t = localStorage.getItem('sm-theme'); if (t === 'day' || t === 'night') d.dataset.theme = t; } catch (e) {}
+      d.classList.add('js');
+      window.__smFailsafe = setTimeout(function () { if (!d.classList.contains('ready')) d.classList.remove('js'); }, 4000);
+    })();
+  </script>
 </head>
 <body>
-  <!-- Top navigation -->
-  <header class="top-nav" role="banner">
-    <div class="top-nav-inner">
-      <nav class="top-nav-links" id="top-nav-links" aria-label="Main">
-        <a href="#work">Case Studies</a>
-        <a href="#other-projects">More Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Start a Project</a>
-      </nav>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <span class="theme-toggle-icon theme-icon-light" aria-hidden="true">☀</span>
-        <span class="theme-toggle-icon theme-icon-dark" aria-hidden="true">☽</span>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Sanjaya Maharjan — back to top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 4c9 0 16 6 15.4 15S28.6 36.6 19.4 36 3.6 28 4.6 19 11 4 20 4z"/>
+        <path d="M20 11c5 0 9 3.6 8.6 8.4S24.8 29 19.8 28.8s-8.6-4.2-8.2-9S15 11 20 11z"/>
+        <circle cx="20.4" cy="19.6" r="2.6"/>
+      </svg>
+      <span class="brand-text">Sanjaya <b>Maharjan</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#ai">AI</a>
+      <a href="#ascent">Ascent</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <span class="nav-clock" title="Local time in Kathmandu"><span class="dot" aria-hidden="true"></span>KTM <time data-clock>--:--</time></span>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to day theme">
+        <span class="tt-track" aria-hidden="true"><span class="tt-knob"></span></span>
+        <span class="tt-label" data-theme-label>Night</span>
       </button>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="top-nav-links"></button>
+      <a class="nav-cv" href="assets/cv.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
+        <span class="sr-only">Menu</span><span class="menu-lines" aria-hidden="true"></span>
+      </button>
     </div>
   </header>
 
-  <div class="layout">
-  <!-- Left: compact contact (conversion-friendly, muted) -->
-  <aside class="contact-sidebar" aria-label="Contact">
-    <div class="contact-card">
-      <p class="contact-card-label"><span class="contact-icon contact-icon-email" aria-hidden="true">✉</span> Email</p>
-      <a href="mailto:sanjayamaharjan.codes@gmail.com" class="contact-card-link">sanjayamaharjan.codes@gmail.com</a>
-      <p class="contact-card-label"><span class="contact-icon contact-icon-phone" aria-hidden="true">📞</span> Phone</p>
-      <a href="tel:+18483133926" class="contact-card-link contact-card-phone">US: +1 (848) 313-3926</a>
-      <div class="contact-phone-more" id="contact-phone-more" hidden>
-        <a href="tel:+14154390734" class="contact-card-link contact-card-phone">Google Voice: +1 (415) 439-0734</a>
-        <a href="tel:+9779860171049" class="contact-card-link contact-card-phone">Nepal: +977 986-017-1049</a>
-      </div>
-      <button type="button" class="contact-more-numbers-btn" id="contact-more-numbers-btn" aria-expanded="false" aria-controls="contact-phone-more">More numbers</button>
-      <p class="contact-card-label">LinkedIn</p>
-      <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="contact-card-link">linkedin.com/in/sanjaya-maharjan</a>
-      <a href="assets/cv.pdf" class="contact-card-cv" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
-    </div>
-  </aside>
-  <main class="content">
-    <div class="container">
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <img src="assets/profile.png" alt="" class="hero-profile-pic" width="96" height="96">
-      <div class="hero-text">
-        <h1 id="hero-heading" class="hero-headline">Sanjaya Maharjan</h1>
-        <p class="hero-sub">Lead Software Engineer · Cloud-Native Systems (since 2012)</p>
-        <p class="hero-value">Designing cloud-native platforms and modernizing legacy systems with measurable performance and reliability gains.</p>
-        <div class="hero-services">Architecture · Modernization · Performance</div>
-        <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">View Case Studies</a>
-          <a href="#contact" class="btn btn-secondary">Start a Project</a>
-          <a href="assets/cv.pdf" class="hero-cta-link" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
-        </div>
-      </div>
-      <!-- Impact strip -->
-      <div class="impact-strip" role="list">
-        <div class="impact-block" role="listitem">
-          <span class="impact-title">Enterprise modernization</span>
-          <span class="impact-sub">on-prem → AWS cloud-native</span>
-        </div>
-        <div class="impact-divider" aria-hidden="true"></div>
-        <div class="impact-block" role="listitem">
-          <span class="impact-title">High-traffic performance</span>
-          <span class="impact-sub">load time + throughput optimization</span>
-        </div>
-        <div class="impact-divider" aria-hidden="true"></div>
-        <div class="impact-block" role="listitem">
-          <span class="impact-title">Infrastructure as Code</span>
-          <span class="impact-sub">Terraform + CI/CD (Jenkins/Azure DevOps)</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mobile: compact contact row below hero -->
-    <div class="contact-row-mobile" aria-label="Contact">
-      <a href="mailto:sanjayamaharjan.codes@gmail.com">Email</a>
-      <span class="contact-row-sep" aria-hidden="true">|</span>
-      <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="contact-row-sep" aria-hidden="true">|</span>
-      <a href="tel:+18483133926">Phone</a>
-    </div>
-
-    <!-- About -->
-    <section class="section about" id="about">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">About</p>
-          <h2 class="section-title">Background</h2>
-          <p class="section-subtitle">Lead Software Engineer with enterprise experience building and modernizing systems since 2012.</p>
-        </header>
-        <div class="section-body">
-          <p class="about-lead">I'm a Lead Software Engineer with enterprise experience building and modernizing systems since 2012. My work spans architecture, full-stack development, and cloud-native delivery—most often with .NET, React/Angular, and AWS—including API contracts, versioning, and production operations.</p>
-          <ul class="about-what">
-            <li>Modernize legacy systems → cloud-native</li>
-            <li>Design microservices &amp; secure APIs</li>
-            <li>Improve performance and reliability at scale</li>
-          </ul>
-          <a href="#contact" class="link-arrow">→ Start a project</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case Studies (selected work – star of the site) -->
-    <section class="section works" id="work">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">Case Studies</p>
-          <h2 class="section-title">Selected work</h2>
-          <p class="section-subtitle">A few public-facing projects and platforms I've contributed to.</p>
-        </header>
-        <div class="section-body">
-          <div class="work-grid">
-        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/xZbWQGXP6Kt3StCRsdyEnz39S5LYqRnlzXyMrhaCpHCaxyswEvIViYhsmTNpMrWt2Ulk-b4S3AOx2Mnl1cQizQ.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">LETS (Fontworks)</h3>
-            <p class="work-desc">Font discovery and licensing platform for Fontworks.</p>
-            <p class="work-what">Platform scaling + deployment strategy; font impression &amp; emotion analysis.</p>
-            <div class="work-tags"><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">High traffic</span><span class="chip">OCI</span><span class="chip">CI/CD</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://lets.fontworks.co.jp" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/FS89aUmZj_AL9R1SI6ENUePnNrClsQLJuYu0o3wCqjR8oiAUvT-4x5xoYTm5461hfaAFcWUTK_AYjeNEa0b7BA.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Fontplus</h3>
-            <p class="work-desc">Japanese font subscription and web font service.</p>
-            <p class="work-what">Scalable deployment and full-stack delivery.</p>
-            <div class="work-tags"><span class="chip">PHP</span><span class="chip">Cloudflare</span><span class="chip">OCI</span><span class="chip">AWS</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://fontplus.jp" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card work-card--featured" style="--thumb: url('https://iad.microlink.io/o0-Gw0IxP18-2gits_tfJ_QQu5mKD1Vtn0AGdb5Uac7u6cTNk-RUlbV5IVEhb17Ie6y8GafsqBe_8PsZHZWioA.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Fonts.com</h3>
-            <p class="work-desc">Monotype font store and web font delivery.</p>
-            <p class="work-what">High-traffic storefront; scaling and CI/CD.</p>
-            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://www.fonts.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/4VAP52jkUeYYKtS82Vz0CHx13KDBQP4XbpBf0vAp8qEJB_90d4OCZ28yGqapZgkGOU64Bo4X6SJCbXkmvHLv8A.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Myfonts.com</h3>
-            <p class="work-desc">Font marketplace and licensing.</p>
-            <p class="work-what">CI/CD and infrastructure for marketplace delivery.</p>
-            <div class="work-tags"><span class="chip">AWS</span><span class="chip">CI/CD</span><span class="chip">High traffic</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://www.myfonts.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/isUWqWgAvYgV3vohEPHV5WNf1n5TOQJT9AOVto0aHEZwH6SNGe9gNb2HIxAoO53V5LqxB9j3Z-pdI7MmzUKXIw.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Linotype.com</h3>
-            <p class="work-desc">Typography and font library.</p>
-            <p class="work-what">Backend and delivery for typography platform.</p>
-            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://www.linotype.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/7bnTvBWPqMxcCBf18RCXLRpLl-389yrHl-B3Updo5AUR2P8h5L6l_61d6VopA936bxoyb9HT_Mi6Ft7fepnjIw.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Fontshop.com</h3>
-            <p class="work-desc">Font retail and web font platform.</p>
-            <p class="work-what">High-traffic retail and CDN delivery.</p>
-            <div class="work-tags"><span class="chip">High traffic</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://www.fontshop.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card" style="--thumb: url('https://iad.microlink.io/DDx3cN7afsAMf3hXFjzZnkiMFLJ0KKMDgxnxkpSD7LCo3CKZVJItlnhgyC23zReRUtGI1HOvoPYQ2Ip8NQQgWg.png');">
-          <div class="work-thumb"></div>
-          <div class="work-meta">
-            <h3 class="work-title">Leslinq.com</h3>
-            <p class="work-desc">E‑commerce and inventory platform.</p>
-            <p class="work-what">Payments integration and inventory workflows.</p>
-            <div class="work-tags"><span class="chip">.NET</span><span class="chip">Payments</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://www.leslinq.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-        <div class="work-card card" style="--thumb: url('assets/collegerecon.png');">
-          <div class="work-thumb work-thumb--contain"></div>
-          <div class="work-meta">
-            <h3 class="work-title">CollegeRecon</h3>
-            <p class="work-desc">College discovery platform for military service members and veterans.</p>
-            <p class="work-what">Full-stack delivery; microservices transition; college search and scholarship tools.</p>
-            <div class="work-tags"><span class="chip">React</span><span class="chip">Angular</span></div>
-            <div class="work-cta-row">
-              <a href="#work" class="work-cta-primary">View details →</a>
-              <a href="https://collegerecon.com" target="_blank" rel="noopener" class="work-cta-external">Open site ↗</a>
-            </div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- More Work (enterprise / private) -->
-    <section class="section other-projects" id="other-projects">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">More Work</p>
-          <h2 class="section-title">More work</h2>
-          <p class="section-subtitle">Enterprise systems and internal tools (details available on request). Private/enterprise — summary available.</p>
-        </header>
-        <div class="section-body">
-          <ul class="other-list" role="list">
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-1" id="other-btn-1">
-                <span class="other-name">Research 360</span>
-                <span class="other-meta">Font metadata · Internal platform · React + Next.js + AWS</span>
-              </button>
-              <div id="other-panel-1" class="other-panel" role="region" aria-labelledby="other-btn-1">
-                <ul class="other-bullets">
-                  <li>Scalable deployment and font impression/emotion analysis</li>
-                  <li>Full-stack React, Next.js, NestJS, Node.js, AWS</li>
-                </ul>
-                <div class="other-chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">AWS</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-2" id="other-btn-2">
-                <span class="other-name">HP Workforce Experience Platform</span>
-                <span class="other-meta">Internal platform · Microservices · .NET + React + AWS + Terraform</span>
-              </button>
-              <div id="other-panel-2" class="other-panel" role="region" aria-labelledby="other-btn-2">
-                <ul class="other-bullets">
-                  <li>C#, .NET, React, lazy loading and route preloading</li>
-                  <li>RESTful APIs, OpenAPI/Swagger; Azure DevOps CI/CD</li>
-                </ul>
-                <div class="other-chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Microsite</span><span class="chip">AWS</span><span class="chip">Terraform</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-3" id="other-btn-3">
-                <span class="other-name">Monotype Admin</span>
-                <span class="other-meta">Internal · Admin tooling · .NET + Jenkins + Octopus</span>
-              </button>
-              <div id="other-panel-3" class="other-panel" role="region" aria-labelledby="other-btn-3">
-                <ul class="other-bullets">
-                  <li>Part of Monotype font ecosystem; Jenkins, Octopus</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span><span class="chip">CI/CD</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-4" id="other-btn-4">
-                <span class="other-name">TypeCommerce · Sales Order Cloud</span>
-                <span class="other-meta">Commerce · Enterprise · .NET + AWS</span>
-              </button>
-              <div id="other-panel-4" class="other-panel" role="region" aria-labelledby="other-btn-4">
-                <ul class="other-bullets">
-                  <li>3D Secure, CyberSource; Cloudflare; Docker, Kubernetes</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span><span class="chip">AWS</span><span class="chip">Payment</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-5" id="other-btn-5">
-                <span class="other-name">Unemployment Insurance Web Application</span>
-                <span class="other-meta">Government · Web app · .NET + Angular + AWS</span>
-              </button>
-              <div id="other-panel-5" class="other-panel" role="region" aria-labelledby="other-btn-5">
-                <ul class="other-bullets">
-                  <li>C# .NET Core, API Gateway, Azure DevOps CI/CD</li>
-                  <li>Angular 18 and React; document and profile management</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span><span class="chip">Angular</span><span class="chip">AWS</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-6" id="other-btn-6">
-                <span class="other-name">Alithias Healthcare Analytics</span>
-                <span class="other-meta">Analytics · Internal platform · .NET + React + AWS</span>
-              </button>
-              <div id="other-panel-6" class="other-panel" role="region" aria-labelledby="other-btn-6">
-                <ul class="other-bullets">
-                  <li>Node.js, Angular, RxJS; ASP.NET Core Web APIs</li>
-                </ul>
-                <div class="other-chips"><span class="chip">Angular</span><span class="chip">.NET</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-7" id="other-btn-7">
-                <span class="other-name">Japanese Tobacco Industry Inventory Management</span>
-                <span class="other-meta">Commerce · Enterprise · .NET + SQL</span>
-              </button>
-              <div id="other-panel-7" class="other-panel" role="region" aria-labelledby="other-btn-7">
-                <ul class="other-bullets">
-                  <li>Stored procedures, LINQ; Leslinq.com related</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span><span class="chip">SQL</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-8" id="other-btn-8">
-                <span class="other-name">Banaunu.com</span>
-                <span class="other-meta">Web app · .NET</span>
-              </button>
-              <div id="other-panel-8" class="other-panel" role="region" aria-labelledby="other-btn-8">
-                <ul class="other-bullets">
-                  <li>Grafi Offshore; infrastructure and software blueprints</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-9" id="other-btn-9">
-                <span class="other-name">Financial Risk Management Assistant App</span>
-                <span class="other-meta">Finance · API · C# + Web API</span>
-              </button>
-              <div id="other-panel-9" class="other-panel" role="region" aria-labelledby="other-btn-9">
-                <ul class="other-bullets">
-                  <li>C#, Web API, Entity Framework</li>
-                </ul>
-                <div class="other-chips"><span class="chip">C#</span><span class="chip">Web API</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-10" id="other-btn-10">
-                <span class="other-name">Online Survey App for Bank of Canada</span>
-                <span class="other-meta">Government · Survey · .NET</span>
-              </button>
-              <div id="other-panel-10" class="other-panel" role="region" aria-labelledby="other-btn-10">
-                <ul class="other-bullets">
-                  <li>Associate information management; C#, Web API</li>
-                </ul>
-                <div class="other-chips"><span class="chip">.NET</span></div>
-              </div>
-            </li>
-            <li class="other-item">
-              <button type="button" class="other-header" aria-expanded="false" aria-controls="other-panel-11" id="other-btn-11">
-                <span class="other-name">Subisu Inventory Management System</span>
-                <span class="other-meta">Inventory · Internal · ASP.NET + MSSQL</span>
-              </button>
-              <div id="other-panel-11" class="other-panel" role="region" aria-labelledby="other-btn-11">
-                <ul class="other-bullets">
-                  <li>C#, ASP.NET; MSSQL database objects</li>
-                </ul>
-                <div class="other-chips"><span class="chip">ASP.NET</span><span class="chip">MSSQL</span></div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience & Impact -->
-    <section class="section experience" id="experience">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">Experience</p>
-          <h2 class="section-title">Experience &amp; Impact</h2>
-          <p class="section-subtitle">I've led delivery across enterprise platforms, cloud migrations, and high-traffic systems.</p>
-        </header>
-        <div class="section-body">
-          <div class="timeline">
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">May 2024 – Present</span>
-                <span class="exp-company">UBA Solutions (Monotype Partner, Nepal)</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Lead Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Own architecture and delivery for Research 360, LETS, and Fontplus—scalable deployment and font analytics</li>
-                  <li>Full-stack .NET and React on AWS; API contracts and production operations</li>
-                  <li>Bot protection and edge delivery (Cloudflare); monitoring and alerting</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">Microservices</span><span class="chip">AWS</span><span class="chip">React</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Oct 2024 – March 2025</span>
-                <span class="exp-company">HP Inc, TX</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Senior Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for HP Workforce Experience Platform; Terraform and Azure DevOps CI/CD</li>
-                  <li>RESTful APIs with OpenAPI/Swagger; React with lazy loading and route preloading</li>
-                  <li>Security: OAuth/JWT and secrets management; performance and observability</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">.NET</span><span class="chip">AWS</span><span class="chip">CI/CD</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Oct 2023 – Sep 2024</span>
-                <span class="exp-company">Deloitte, CO</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Senior Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Led workflow microservices and API Gateway integration; IBM content engine, .NET Core, Azure DevOps CI/CD</li>
-                  <li>Document and profile management; Angular 18 and React—State of Colorado Unemployment Insurance</li>
-                  <li>Architecture ownership for high-availability and secure access (SSO)</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">.NET Core</span><span class="chip">Angular</span><span class="chip">AWS</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">May 2023 – Sep 2023</span>
-                <span class="exp-company">Dwaith Infotech, MN (Remote)</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Senior Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Owned legacy modernization and .NET microservices handling 1M+ daily requests; React, Redux</li>
-                  <li>Multi-store data (PostgreSQL, MySQL, MongoDB, DynamoDB); AWS/Azure; Docker, Kubernetes</li>
-                  <li>Caching (Redis), async processing, and monitoring/alerting for performance</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">Microservices</span><span class="chip">React</span><span class="chip">Kubernetes</span></div>
-              </div>
-            </article>
-            <div class="exp-older" id="exp-older" hidden>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">April 2018 – May 2023</span>
-                <span class="exp-company">UBA Solutions (Monotype Partner, Nepal)</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Solution Architect / Lead Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Owned AWS scaling (EC2/ASG, ELB, RDS read replicas, S3) for fonts.com, linotype.com, fontshop.com; Jenkins, Octopus CI/CD</li>
-                  <li>Security: 3D Secure, CyberSource, Cloudflare bot protection; Docker, Kubernetes; Angular, React</li>
-                  <li>Performance and reliability: caching, CDN, monitoring and alerting</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">AWS</span><span class="chip">CI/CD</span><span class="chip">Kubernetes</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Jan 2017 – April 2018</span>
-                <span class="exp-company">Novelty Technology, NC (Nepal)</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Lead Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Led microservices transition and full-stack delivery; Node.js, Angular, RxJS; ASP.NET Core Web APIs</li>
-                  <li>CollegeRecon, Alithias Healthcare Analytics—architecture and API design</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">Angular</span><span class="chip">.NET</span><span class="chip">Azure</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">July 2014 – Oct 2016</span>
-                <span class="exp-company">Grafi Offshore Pvt. Ltd., Nepal</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Senior Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>Owned infrastructure and software design; stored procedures, LINQ; PayPal, Adyen integrations</li>
-                  <li>Japanese Tobacco Inventory, Leslinq.com, Banaunu.com</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">.NET</span><span class="chip">SQL</span><span class="chip">Payments</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">June 2013 – May 2014</span>
-                <span class="exp-company">Hatra Inc., Nepal</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>API and database design; C#, Web API, Entity Framework—Financial Risk Management App, Bank of Canada Survey</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">C#</span><span class="chip">Web API</span><span class="chip">EF</span></div>
-              </div>
-            </article>
-            <article class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Jan 2012 – April 2013</span>
-                <span class="exp-company">Channakya Software, Nepal</span>
-              </div>
-              <div class="exp-content">
-                <h3 class="exp-role">Software Engineer</h3>
-                <ul class="exp-bullets">
-                  <li>C#, ASP.NET, MSSQL; full SDLC—Subisu Inventory Management System</li>
-                </ul>
-                <div class="exp-chips"><span class="chip">ASP.NET</span><span class="chip">MSSQL</span><span class="chip">SDLC</span></div>
-              </div>
-            </article>
-            </div>
-            <p class="exp-older-wrap">
-              <button type="button" class="btn btn-secondary exp-older-btn" id="exp-older-btn" aria-expanded="false" aria-controls="exp-older">Earlier experience</button>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section class="section skills" id="skills">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">Capabilities</p>
-          <h2 class="section-title">Capabilities</h2>
-          <p class="section-subtitle">Backend, frontend, cloud, data, and delivery — what I bring to projects.</p>
-        </header>
-        <div class="section-body">
-          <div class="skills-grid">
-            <div class="skill-card card">
-              <h4 class="skill-card-title">Backend &amp; APIs</h4>
-              <div class="skill-chips">
-                <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Web API</span>
-              </div>
-            </div>
-            <div class="skill-card card">
-              <h4 class="skill-card-title">Frontend</h4>
-              <div class="skill-chips">
-                <span class="chip">React</span><span class="chip">Angular</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">HTML/CSS</span>
-              </div>
-            </div>
-            <div class="skill-card card">
-              <h4 class="skill-card-title">Cloud &amp; DevOps</h4>
-              <div class="skill-chips">
-                <span class="chip">ECS/ECR</span><span class="chip">EC2</span><span class="chip">RDS</span><span class="chip">S3</span><span class="chip">Lambda</span><span class="chip">VPC</span><span class="chip">CloudWatch</span><span class="chip">Route53</span><span class="chip">SQS</span><span class="chip">Terraform</span><span class="chip">CI/CD</span>
-              </div>
-            </div>
-            <div class="skill-card card">
-              <h4 class="skill-card-title">Data</h4>
-              <div class="skill-chips">
-                <span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">DynamoDB</span><span class="chip">Entity Framework</span>
-              </div>
-            </div>
-            <div class="skill-card card">
-              <h4 class="skill-card-title">Delivery</h4>
-              <div class="skill-chips">
-                <span class="chip">Agile</span><span class="chip">Architecture</span><span class="chip">Azure DevOps</span><span class="chip">GitHub</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Credentials & Certification -->
-    <section class="section education" id="education">
-      <div class="section-inner">
-        <header class="section-header">
-          <p class="section-eyebrow">Credentials</p>
-          <h2 class="section-title">Credentials &amp; Certification</h2>
-          <p class="section-subtitle">Degrees and industry certifications.</p>
-        </header>
-        <div class="section-body">
-          <div class="edu-grid">
-            <div class="edu-card card">
-              <h4 class="edu-name">Bachelor's in Computer Engineering</h4>
-              <p class="edu-meta">Khwopa Engineering College, Nepal</p>
-              <p class="edu-desc">Foundation in software and systems engineering.</p>
-            </div>
-            <div class="edu-card card">
-              <h4 class="edu-name">Master's in Computer Science</h4>
-              <p class="edu-meta">Nepal College of Information and Technology</p>
-              <p class="edu-desc">Advanced study in computer science.</p>
-            </div>
-            <div class="edu-card card">
-              <h4 class="edu-name">AWS Certified Developer – Associate</h4>
-              <p class="edu-meta">Amazon Web Services</p>
-              <p class="edu-desc">Cloud development and delivery.</p>
-              <span class="badge" aria-label="AWS certification">AWS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact / CTA (consulting-first, premium) -->
-    <section class="section cta" id="contact">
-      <div class="cta-inner">
-        <div class="section-inner">
-          <div class="cta-card">
-            <div class="cta-card-message">
-              <h2 class="cta-headline">Let's build something reliable.</h2>
-              <p class="cta-supporting">Architecture, modernization, and performance improvements for cloud-native systems.</p>
-            </div>
-            <div class="cta-card-actions">
-              <a href="mailto:sanjayamaharjan.codes@gmail.com?subject=Project%20inquiry%20%E2%80%94%20Sanjaya%20Maharjan" class="cta-btn cta-btn-primary">Start a project</a>
-              <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">LinkedIn</a>
-            </div>
-          </div>
-          <footer class="footer-small">
-            <div class="footer-row">
-              <div class="footer-left">
-                <p class="footer-copy">© 2026 Sanjaya Maharjan</p>
-              </div>
-              <div class="footer-right">
-                <a href="mailto:sanjayamaharjan.codes@gmail.com?subject=Project%20inquiry%20%E2%80%94%20Sanjaya%20Maharjan" class="footer-link">Email</a>
-                <span class="footer-sep" aria-hidden="true">·</span>
-                <a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-                <span class="footer-sep" aria-hidden="true">·</span>
-                <a href="tel:+18483133926" class="footer-link">Phone</a>
-                <span class="footer-sep" aria-hidden="true">·</span>
-                <a href="assets/cv.pdf" class="footer-link" download="Sanjaya-Maharjan-CV.pdf">CV (PDF)</a>
-              </div>
-            </div>
-          </footer>
-        </div>
-      </div>
-    </section>
-    </div>
-  </main>
+  <div class="menu" id="menu" data-menu hidden>
+    <nav aria-label="Mobile">
+      <a href="#about" style="--i:0"><small>01</small>Field notes</a>
+      <a href="#ai" style="--i:1"><small>02</small>AI</a>
+      <a href="#ascent" style="--i:2"><small>03</small>The ascent</a>
+      <a href="#work" style="--i:3"><small>04</small>Work</a>
+      <a href="#stack" style="--i:4"><small>05</small>Stack</a>
+      <a href="#credentials" style="--i:5"><small>06</small>Credentials</a>
+      <a href="#contact" style="--i:6"><small>07</small>Contact</a>
+    </nav>
+    <p class="menu-foot"><a href="mailto:smaharjan.codes@gmail.com">smaharjan.codes@gmail.com</a></p>
   </div>
 
-  <a href="#hero-heading" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+  <!-- ================= ALTIMETER (decorative scroll gauge, wide screens) ================= -->
+  <aside class="altimeter" aria-hidden="true" data-altimeter>
+    <div class="alt-scale"><span class="alt-fill" data-alt-fill></span><span class="alt-pip" data-alt-pip></span></div>
+    <div class="alt-readout"><span data-alt-value>1,400</span> m</div>
+  </aside>
 
-  <script src="script.js"></script>
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <canvas class="terrain" data-terrain="hero" aria-hidden="true"></canvas>
+
+      <div class="hero-hud" aria-hidden="true">
+        <p data-scramble>Survey sheet 01 — Kathmandu Valley</p>
+        <p data-scramble>27°42′N 85°19′E · contour interval 100 m</p>
+      </div>
+
+      <div class="readout" data-readout aria-hidden="true">
+        <span class="ro-elev">▲ <b data-ro-elev>0</b> m</span>
+        <span class="ro-coord" data-ro-coord></span>
+      </div>
+
+      <div class="hero-body">
+        <p class="eyebrow hero-in" style="--d:.15s"><span class="seg">AI &amp; Cloud Architect</span> <span class="seg"><span class="sep">/</span>LLMs · agents · cloud‑native</span> <span class="seg"><span class="sep">/</span>shipping since 2012</span></p>
+        <h1 class="name" data-name>
+          <span class="sr-only">Sanjaya Maharjan</span>
+          <span class="name-line" aria-hidden="true">Sanjaya</span>
+          <span class="name-line" aria-hidden="true">Maharjan</span>
+        </h1>
+        <div class="hero-foot">
+          <p class="hero-sub hero-in" style="--d:.55s">I design AI systems that hold up in production — LLM apps, retrieval and multi‑agent workflows — on the cloud foundations I’ve built since 2012 for <em>Monotype</em>, <em>HP</em>, <em>Deloitte</em> and the State of Colorado.</p>
+          <div class="hero-cta hero-in" style="--d:.7s">
+            <a class="btn btn-solid magnetic" href="mailto:smaharjan.codes@gmail.com?subject=Hello%20Sanjaya">Start a conversation</a>
+            <a class="btn btn-ghost magnetic" href="#ascent">Trace the ascent <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to content"><span>Scroll to climb</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <!-- ================= 01 FIELD NOTES ================= -->
+    <section class="notes section" id="about" aria-labelledby="notes-title">
+      <div class="wrap">
+        <p class="label" data-scramble><span>01</span> Field notes</p>
+        <h2 class="sr-only" id="notes-title">About</h2>
+        <p class="statement" data-words>Since 2012 I’ve been taking systems from on‑prem to <em>cloud‑native</em>, from slow to fast, from fragile to <em>boring</em> — and now AI from demo to <em>dependable</em>. I own the architecture, write the code, and stay for production.</p>
+
+        <div class="notes-grid">
+          <figure class="portrait" data-reveal>
+            <picture>
+              <source srcset="assets/portrait.webp" type="image/webp">
+              <img src="assets/portrait.jpg" width="640" height="795" alt="Portrait of Sanjaya Maharjan" loading="lazy" decoding="async">
+            </picture>
+            <figcaption><span>Sanjaya Maharjan</span><span>Kathmandu, NP</span></figcaption>
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          </figure>
+
+          <div class="bio">
+            <p data-reveal>I’m an AI and cloud architect based in Kathmandu. Most of my work lives where enterprise meets scale: <strong>LLM applications and agents</strong> on top of <strong>.NET microservices and secure APIs</strong>, <strong>React and Angular</strong> front‑ends, and <strong>AWS infrastructure defined in Terraform</strong>.</p>
+            <p data-reveal style="--d:.08s">For more than seven years I’ve worked on Monotype’s font ecosystem — Fonts.com, MyFonts, Linotype, FontShop — alongside Fontworks and Fontplus in Japan. I’ve also owned microservices and AWS delivery for HP’s Workforce Experience Platform, and led workflow services for the State of Colorado’s unemployment insurance system with Deloitte.</p>
+            <p data-reveal style="--d:.12s">More and more of my work is AI: LLM applications and retrieval over company data, multi‑agent systems with review gates and persistent memory, and cloud AI services wired into platforms that already have to be secure, observable and fast.</p>
+            <p data-reveal style="--d:.16s" class="bio-meta">Kathmandu · open to relocation · comfortable across US time zones</p>
+
+            <dl class="stats">
+              <div class="stat" data-reveal><dt>Years shipping production software</dt><dd><span data-count data-years-since="2012">14</span></dd></div>
+              <div class="stat" data-reveal style="--d:.06s"><dt>Daily requests through .NET microservices I owned</dt><dd><span data-count="1">1</span>M<sup>+</sup></dd></div>
+              <div class="stat" data-reveal style="--d:.12s"><dt>Companies, from Kathmandu to Texas</dt><dd><span data-count="8">8</span></dd></div>
+              <div class="stat" data-reveal style="--d:.18s"><dt>Platforms built, scaled or modernized</dt><dd><span data-count="20">20</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02 INTELLIGENCE ================= -->
+    <section class="ai section" id="ai" aria-labelledby="ai-title">
+      <div class="wrap">
+        <p class="label" data-scramble><span>02</span> Intelligence</p>
+        <div class="ai-head">
+          <h2 class="h2" id="ai-title" data-reveal>AI that survives <span class="stretch">production.</span></h2>
+          <p class="lede" data-reveal style="--d:.08s">Most AI projects stall in the same place: production. Retrieval goes stale, agents loop, models invent facts, and nobody forecast the bill. Fourteen years of cloud architecture is the half of AI most teams are missing — I bring both halves.</p>
+        </div>
+
+        <ul class="ai-grid">
+          <li class="ai-card" data-reveal><p class="ai-k">01</p><h3>LLM apps &amp; RAG</h3><p>Assistants and search over your own data — chunking, embeddings and vector retrieval behind the APIs your product already has.</p></li>
+          <li class="ai-card" data-reveal style="--d:.06s"><p class="ai-k">02</p><h3>AI agents</h3><p>Role‑separated agents with tools, review gates and persistent memory — built to be audited, not just demoed.</p></li>
+          <li class="ai-card" data-reveal style="--d:.12s"><p class="ai-k">03</p><h3>Cloud AI services</h3><p>AWS Bedrock and SageMaker, Azure OpenAI, OpenAI and Anthropic APIs — under the same security, observability and cost controls as the rest of the platform.</p></li>
+          <li class="ai-card" data-reveal style="--d:.18s"><p class="ai-k">04</p><h3>ML &amp; NLP in production</h3><p>ML‑driven font impression and emotion analysis for Fontworks’ LETS and Monotype’s Research 360; NLP extraction that scores its own confidence.</p></li>
+        </ul>
+
+        <article class="agents" data-reveal aria-labelledby="agents-title">
+          <div class="agents-copy">
+            <p class="lab-kicker"><span class="lab-dot" aria-hidden="true"></span>Flagship R&amp;D · multi‑agent system</p>
+            <h3 class="lab-title" id="agents-title">An organization run by agents</h3>
+            <p class="lab-desc">Role‑separated agents on Claude Code — a CEO, Strategist, Researcher, Builder and Reviewer, plus Growth, Comms, Legal and Investor. Every factual claim needs a cited source, the Reviewer can block any plan, memory lives in files and git so each decision is auditable, and scheduled cloud runs keep the organization working between sessions. One governance cycle took an idea from proposal to a live, shipped website in about four hours.</p>
+            <ol class="agents-log" data-agents-log aria-label="One governance cycle">
+              <li>Strategist proposes three bets</li>
+              <li>Reviewer blocks an unverified claim</li>
+              <li>Researcher verifies at the primary source</li>
+              <li>Reviewer lifts the block</li>
+              <li>Builder ships the site</li>
+            </ol>
+          </div>
+          <svg class="agents-map" data-agents viewBox="0 0 520 440" role="img" aria-label="Nine agents around a central Reviewer gate, replaying one governance cycle"></svg>
+        </article>
+
+        <article class="lab" data-reveal aria-labelledby="lab-title">
+          <div class="lab-head">
+            <p class="lab-kicker"><span class="lab-dot" aria-hidden="true"></span>In the lab · LLM pipeline</p>
+            <h3 class="lab-title" id="lab-title">IntelligentResume</h3>
+            <p class="lab-sub">Private repository · demo on request</p>
+          </div>
+          <p class="lab-desc">An LLM pipeline that turns a few signals — companies, roles, project names — into a tailored résumé and portfolio. Llama 3.1 runs locally through Ollama with a Hugging Face fallback; spaCy extraction scores its own confidence; guardrails reject invented metrics and tools; and layouts are solved from design constraints instead of templates.</p>
+          <ol class="pipeline">
+            <li style="--i:0"><b>Signals</b><span>companies, roles, projects</span></li>
+            <li style="--i:1"><b>Extract</b><span>spaCy · confidence scoring</span></li>
+            <li style="--i:2"><b>Infer</b><span>Llama 3.1 via Ollama · HF fallback</span></li>
+            <li style="--i:3"><b>Guardrails</b><span>no invented metrics or tools</span></li>
+            <li style="--i:4"><b>Tailor</b><span>job‑description matching</span></li>
+            <li style="--i:5"><b>Layout</b><span>constraint solver, no templates</span></li>
+            <li style="--i:6"><b>Export</b><span>PDF · HTML · Markdown · site</span></li>
+          </ol>
+          <p class="lab-stack">Python · FastAPI · Ollama · Hugging Face · spaCy · Redis · React · Docker</p>
+        </article>
+
+        <div class="ai-bring" data-reveal>
+          <p>What demos skip and I don’t</p>
+          <ul><li>Auth &amp; data boundaries</li><li>Latency &amp; caching</li><li>Cost per request</li><li>Observability</li><li>Fallback models</li><li>Human review</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02 THE ASCENT ================= -->
+    <section class="ascent section" id="ascent" aria-labelledby="ascent-title" data-ascent>
+      <div class="wrap ascent-head">
+        <p class="label" data-scramble><span>03</span> The ascent</p>
+        <h2 class="h2" id="ascent-title" data-reveal>Nine roles.<br><span class="stretch">One direction.</span></h2>
+        <p class="lede" data-reveal style="--d:.08s">From writing C# for inventory systems in 2012 to owning architecture on high‑traffic platforms. <span class="only-h">Keep scrolling — the climb runs sideways.</span></p>
+      </div>
+
+      <div class="ascent-pin" data-ascent-pin>
+        <div class="ascent-sticky">
+          <div class="ascent-hud" aria-hidden="true">
+            <span class="hud-k">Year</span><b data-hud-year>2012</b>
+            <span class="hud-k">Altitude</span><b><span data-hud-alt>1,400</span> m</b>
+            <span class="hud-k">Camp</span><b><span data-hud-camp>01</span> / 09</b>
+          </div>
+          <div class="ascent-track" data-ascent-track>
+            <svg class="ascent-svg" data-ascent-svg aria-hidden="true"></svg>
+            <ol class="camps">
+              <li class="camp" data-at="2013.3">
+                <article>
+                  <p class="camp-when">2012 — 2013</p>
+                  <h3>Software Engineer</h3>
+                  <p class="camp-org">Channakya Software <span>Kathmandu</span></p>
+                  <p>C#, ASP.NET and MSSQL across the full development lifecycle — the Subisu inventory management system.</p>
+                  <ul class="tags"><li>ASP.NET</li><li>MSSQL</li><li>SDLC</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2014.4">
+                <article>
+                  <p class="camp-when">2013 — 2014</p>
+                  <h3>Software Engineer</h3>
+                  <p class="camp-org">Hatra Inc. <span>Nepal</span></p>
+                  <p>API and database design for a financial risk‑management assistant and an online survey platform for the Bank of Canada.</p>
+                  <ul class="tags"><li>C#</li><li>Web API</li><li>Entity Framework</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2016.8">
+                <article>
+                  <p class="camp-when">2014 — 2016</p>
+                  <h3>Senior Software Engineer</h3>
+                  <p class="camp-org">Grafi Offshore <span>Nepal</span></p>
+                  <p>Owned infrastructure and software design; PayPal and Adyen integrations for Leslinq.com, a Japanese tobacco inventory system and Banaunu.com.</p>
+                  <ul class="tags"><li>.NET</li><li>SQL</li><li>Payments</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2018.3">
+                <article>
+                  <p class="camp-when">2017 — 2018</p>
+                  <h3>Lead Software Engineer</h3>
+                  <p class="camp-org">Novelty Technology <span>North Carolina · Nepal office</span></p>
+                  <p>Led a microservices transition and full‑stack delivery for CollegeRecon and Alithias healthcare analytics.</p>
+                  <ul class="tags"><li>Angular</li><li>ASP.NET Core</li><li>Node.js</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2023.4">
+                <article>
+                  <p class="camp-when">2018 — 2023</p>
+                  <h3>Solution Architect / Lead Engineer</h3>
+                  <p class="camp-org">UBA Solutions · Monotype partner <span>Nepal</span></p>
+                  <p>Scaled Fonts.com, Linotype and FontShop on AWS — autoscaling, RDS read replicas, CDN — and moved on‑prem systems to the cloud. Jenkins and Octopus CI/CD, 3D Secure, bot protection.</p>
+                  <ul class="tags"><li>AWS</li><li>Kubernetes</li><li>CI/CD</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2023.7">
+                <article>
+                  <p class="camp-when">May — Sep 2023</p>
+                  <h3>Senior Software Engineer</h3>
+                  <p class="camp-org">Dwaith Infotech <span>Minnesota · remote</span></p>
+                  <p>Legacy modernization onto .NET microservices handling <strong>1M+ requests a day</strong> — Redis caching, async processing, monitoring and alerting.</p>
+                  <ul class="tags"><li>Microservices</li><li>React</li><li>Kubernetes</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2024.7">
+                <article>
+                  <p class="camp-when">2023 — 2024</p>
+                  <h3>Senior Software Engineer</h3>
+                  <p class="camp-org">Deloitte <span>Colorado</span></p>
+                  <p>Workflow microservices and API Gateway integration for the State of Colorado’s unemployment insurance platform — SSO, high availability, Angular 18 and React.</p>
+                  <ul class="tags"><li>.NET Core</li><li>Angular</li><li>AWS</li></ul>
+                </article>
+              </li>
+              <li class="camp" data-at="2025.2">
+                <article>
+                  <p class="camp-when">2024 — 2025</p>
+                  <h3>Senior Software Engineer</h3>
+                  <p class="camp-org">HP Inc. <span>Texas</span></p>
+                  <p>Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for the HP Workforce Experience Platform, with Terraform and Azure DevOps CI/CD.</p>
+                  <ul class="tags"><li>.NET</li><li>AWS</li><li>Terraform</li></ul>
+                </article>
+              </li>
+              <li class="camp is-now" data-at="now">
+                <article>
+                  <p class="camp-when">2024 — Now</p>
+                  <h3>Lead Software Engineer</h3>
+                  <p class="camp-org">UBA Solutions · Monotype partner <span>Kathmandu</span></p>
+                  <p>Own architecture and delivery for Research 360, LETS and Fontplus — scalable deployment, ML font‑impression analysis, Cloudflare edge and bot protection.</p>
+                  <ul class="tags"><li>AWS</li><li>React</li><li>Cloudflare</li></ul>
+                </article>
+              </li>
+            </ol>
+          </div>
+          <div class="ascent-bar" aria-hidden="true"><span data-ascent-bar></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 WORK ================= -->
+    <section class="work section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <p class="label" data-scramble><span>04</span> Expeditions</p>
+        <div class="work-head">
+          <h2 class="h2" id="work-title" data-reveal>Public platforms I’ve built, <span class="stretch">scaled</span> or shipped.</h2>
+          <p class="lede" data-reveal style="--d:.08s">Storefronts and services that carried real traffic. In March 2024 Monotype folded Fonts.com, Linotype and FontShop into MyFonts — those links now show the handover.</p>
+        </div>
+
+        <ol class="work-list" data-work-list>
+          <li class="work-row" data-reveal data-seed="7.7" data-domain="myfonts.com" data-shot="assets/work/myfonts.jpg" data-status="Live">
+            <a href="https://www.myfonts.com" target="_blank" rel="noopener">
+              <span class="w-idx">01</span>
+              <span class="w-name">MyFonts</span>
+              <span class="w-meta"><span class="w-ctx">Monotype · font marketplace &amp; licensing</span><span class="w-did">CI/CD and infrastructure for the marketplace — now home to Monotype’s retail catalogue.</span></span>
+              <span class="w-tags">AWS · Terraform</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="3.1" data-domain="fonts.com" data-shot="assets/work/fonts.jpg" data-status="→ MyFonts">
+            <a href="https://www.fonts.com" target="_blank" rel="noopener">
+              <span class="w-idx">02</span>
+              <span class="w-name">Fonts.com<sup class="w-flag">Retired ’24</sup></span>
+              <span class="w-meta"><span class="w-ctx">Monotype · font store &amp; web‑font delivery</span><span class="w-did">Scaled the high‑traffic storefront on AWS — autoscaling, load balancing, RDS read replicas.</span></span>
+              <span class="w-tags">EC2 · ELB · RDS</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="12.4" data-domain="linotype.com" data-shot="assets/work/linotype.jpg" data-status="→ MyFonts">
+            <a href="https://www.linotype.com" target="_blank" rel="noopener">
+              <span class="w-idx">03</span>
+              <span class="w-name">Linotype<sup class="w-flag">Retired ’24</sup></span>
+              <span class="w-meta"><span class="w-ctx">Monotype · typography &amp; font library</span><span class="w-did">Backend and delivery for the typography platform; on‑prem systems moved to AWS.</span></span>
+              <span class="w-tags">Jenkins · Octopus</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="18.9" data-domain="fontshop.com" data-shot="assets/work/fontshop.jpg" data-status="→ MyFonts">
+            <a href="https://www.fontshop.com" target="_blank" rel="noopener">
+              <span class="w-idx">04</span>
+              <span class="w-name">FontShop<sup class="w-flag">Retired ’24</sup></span>
+              <span class="w-meta"><span class="w-ctx">Monotype · font retail &amp; web fonts</span><span class="w-did">High‑traffic retail with CDN delivery and Cloudflare bot protection.</span></span>
+              <span class="w-tags">CDN · Cloudflare</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="24.2" data-domain="lets.fontworks.co.jp" data-shot="assets/work/lets.jpg" data-status="Live">
+            <a href="https://lets.fontworks.co.jp" target="_blank" rel="noopener">
+              <span class="w-idx">05</span>
+              <span class="w-name">LETS</span>
+              <span class="w-meta"><span class="w-ctx">Fontworks, Japan · font discovery &amp; licensing</span><span class="w-did">Platform scaling and deployment strategy; ML‑driven font impression and emotion analysis.</span></span>
+              <span class="w-tags">Python · OCI</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="31.6" data-domain="fontplus.jp" data-shot="assets/work/fontplus.jpg" data-status="Live">
+            <a href="https://fontplus.jp" target="_blank" rel="noopener">
+              <span class="w-idx">06</span>
+              <span class="w-name">Fontplus</span>
+              <span class="w-meta"><span class="w-ctx">Japan · font subscription &amp; web‑font service</span><span class="w-did">Scalable deployment and full‑stack delivery.</span></span>
+              <span class="w-tags">Cloudflare · AWS</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="work-row" data-reveal data-seed="38.3" data-domain="collegerecon.com" data-shot="assets/work/collegerecon.jpg" data-status="Live">
+            <a href="https://collegerecon.com" target="_blank" rel="noopener">
+              <span class="w-idx">07</span>
+              <span class="w-name">CollegeRecon</span>
+              <span class="w-meta"><span class="w-ctx">College discovery for service members &amp; veterans</span><span class="w-did">Full‑stack delivery, microservices transition, search and scholarship tools.</span></span>
+              <span class="w-tags">React · Angular</span>
+              <span class="w-go" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ol>
+
+        <div class="offmap">
+          <div class="offmap-head">
+            <h3 class="h3" data-reveal>Off the map <em>— private &amp; enterprise</em></h3>
+            <div class="filters" role="group" aria-label="Filter private work" data-filters>
+              <button type="button" aria-pressed="true" data-filter="all">All <sup>12</sup></button>
+              <button type="button" aria-pressed="false" data-filter="platform">Platforms</button>
+              <button type="button" aria-pressed="false" data-filter="commerce">Commerce &amp; ops</button>
+              <button type="button" aria-pressed="false" data-filter="public">Public sector</button>
+              <button type="button" aria-pressed="false" data-filter="finance">Finance &amp; data</button>
+            </div>
+          </div>
+          <ul class="offmap-grid" data-offmap>
+            <li class="om-card" data-cat="platform"><p class="om-cat">Internal platform</p><h4>Research 360</h4><p>Raw font metadata turned into a structured analysis and licensing platform, with ML impression and emotion analysis.</p><p class="om-stack">React · Next.js · NestJS · AWS</p></li>
+            <li class="om-card" data-cat="platform"><p class="om-cat">Enterprise platform</p><h4>HP Workforce Experience Platform</h4><p>Microservices and OpenAPI‑described REST APIs behind a lazy‑loaded React front‑end.</p><p class="om-stack">.NET · React · AWS · Terraform</p></li>
+            <li class="om-card" data-cat="public"><p class="om-cat">Government · State of Colorado</p><h4>Unemployment Insurance Web App</h4><p>Workflow, document and profile management behind API Gateway.</p><p class="om-stack">.NET Core · Angular 18 · React · AWS</p></li>
+            <li class="om-card" data-cat="commerce"><p class="om-cat">Commerce</p><h4>TypeCommerce · Sales Order Cloud</h4><p>3D Secure and CyberSource payments at the Cloudflare edge.</p><p class="om-stack">.NET · AWS · Docker · Kubernetes</p></li>
+            <li class="om-card" data-cat="platform"><p class="om-cat">Internal tooling</p><h4>Monotype Admin</h4><p>Admin tooling across the Monotype font ecosystem.</p><p class="om-stack">.NET · Jenkins · Octopus</p></li>
+            <li class="om-card" data-cat="finance"><p class="om-cat">Healthcare analytics</p><h4>Alithias Healthcare Analytics</h4><p>ASP.NET Core Web APIs with an Angular and RxJS front‑end.</p><p class="om-stack">.NET · Angular · Node.js</p></li>
+            <li class="om-card" data-cat="commerce"><p class="om-cat">Enterprise inventory</p><h4>Japanese Tobacco Inventory Management</h4><p>Inventory workflows built on stored procedures and LINQ.</p><p class="om-stack">.NET · SQL</p></li>
+            <li class="om-card" data-cat="finance"><p class="om-cat">Finance · API</p><h4>Financial Risk Management Assistant</h4><p>API and data design for a risk‑management assistant.</p><p class="om-stack">C# · Web API · Entity Framework</p></li>
+            <li class="om-card" data-cat="public"><p class="om-cat">Public sector · Survey</p><h4>Online Survey App — Bank of Canada</h4><p>Associate information management and survey delivery.</p><p class="om-stack">.NET · C# · Web API</p></li>
+            <li class="om-card" data-cat="platform"><p class="om-cat">Web platform</p><h4>Banaunu.com</h4><p>Infrastructure and software blueprints for the platform.</p><p class="om-stack">.NET</p></li>
+            <li class="om-card" data-cat="commerce"><p class="om-cat">E‑commerce</p><h4>Leslinq</h4><p>E‑commerce and inventory platform with PayPal and Adyen payment integrations.</p><p class="om-stack">.NET · Payments</p></li>
+            <li class="om-card" data-cat="commerce"><p class="om-cat">Operations</p><h4>Subisu Inventory Management</h4><p>Inventory system built on MSSQL database objects.</p><p class="om-stack">ASP.NET · MSSQL</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="preview" data-preview aria-hidden="true">
+        <canvas class="terrain" data-terrain="preview"></canvas>
+        <div class="preview-meta"><span data-preview-domain>myfonts.com</span><span data-preview-status>Live</span></div>
+      </div>
+    </section>
+
+    <!-- ================= 04 STACK ================= -->
+    <section class="stack section" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <p class="label" data-scramble><span>05</span> Cross‑section</p>
+        <div class="stack-head">
+          <h2 class="h2" id="stack-title" data-reveal>The stack, in strata.</h2>
+          <p class="lede" data-reveal style="--d:.08s">Built from the bedrock up — the data underneath, the infrastructure that carries it, the services on top, the surface people touch, and the models now working above it all.</p>
+        </div>
+      </div>
+      <div class="strata" data-strata>
+        <div class="stratum" data-pattern="sky" style="--i:0">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 01 · Sky</p>
+            <h3>AI &amp; LLMs</h3>
+            <ul class="chips"><li>LLM apps &amp; RAG</li><li>Agents &amp; tool use</li><li>AWS Bedrock · SageMaker</li><li>Azure OpenAI</li><li>OpenAI · Anthropic APIs</li><li>Ollama · Hugging Face</li><li>spaCy · NLP</li><li>Python · FastAPI</li></ul>
+          </div>
+        </div>
+        <div class="stratum" data-pattern="air" style="--i:1">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 02 · Atmosphere</p>
+            <h3>Practice</h3>
+            <ul class="chips"><li>Architecture</li><li>Agile delivery</li><li>API contracts &amp; versioning</li><li>OAuth / JWT · SSO</li><li>Observability &amp; alerting</li><li>Production operations</li></ul>
+          </div>
+        </div>
+        <div class="stratum" data-pattern="dots" style="--i:2">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 03 · Surface</p>
+            <h3>Frontend</h3>
+            <ul class="chips"><li>React</li><li>Angular</li><li>Next.js</li><li>TypeScript</li><li>RxJS · Redux</li><li>HTML / CSS</li></ul>
+          </div>
+        </div>
+        <div class="stratum" data-pattern="dash" style="--i:3">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 04 · Services</p>
+            <h3>Backend &amp; APIs</h3>
+            <ul class="chips"><li>C#</li><li>.NET · ASP.NET Core</li><li>Web API · REST</li><li>OpenAPI / Swagger</li><li>Node.js · NestJS</li><li>Entity Framework · LINQ</li></ul>
+          </div>
+        </div>
+        <div class="stratum" data-pattern="brick" style="--i:4">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 05 · Infrastructure</p>
+            <h3>Cloud &amp; DevOps</h3>
+            <ul class="chips"><li>AWS ECS / ECR</li><li>EC2 · Lambda</li><li>RDS · S3</li><li>VPC · Route 53</li><li>SQS · CloudWatch</li><li>Terraform</li><li>Docker · Kubernetes</li><li>Jenkins · Octopus</li><li>Azure DevOps</li><li>Cloudflare</li></ul>
+          </div>
+        </div>
+        <div class="stratum" data-pattern="cross" style="--i:5">
+          <div class="wrap stratum-in">
+            <p class="s-depth">Layer 06 · Bedrock</p>
+            <h3>Data</h3>
+            <ul class="chips"><li>SQL Server</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li><li>Redis</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 BENCHMARKS ================= -->
+    <section class="marks section" id="credentials" aria-labelledby="marks-title">
+      <div class="wrap">
+        <p class="label" data-scramble><span>06</span> Benchmarks</p>
+        <h2 class="h2" id="marks-title" data-reveal>Credentials, <span class="brass">set in brass.</span></h2>
+        <ul class="marks-list">
+          <li class="mark" data-reveal>
+            <svg class="disc" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="ring-a" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="56" class="disc-rim"/><circle cx="60" cy="60" r="33" class="disc-core"/>
+              <text class="disc-ring"><textPath href="#ring-a">AMAZON WEB SERVICES · CERTIFIED · </textPath></text>
+              <text x="60" y="66" text-anchor="middle" class="disc-glyph">AWS</text>
+            </svg>
+            <div><h3>AWS Certified Developer — Associate</h3><p>Amazon Web Services</p></div>
+          </li>
+          <li class="mark" data-reveal style="--d:.08s">
+            <svg class="disc" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="ring-b" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="56" class="disc-rim"/><circle cx="60" cy="60" r="33" class="disc-core"/>
+              <text class="disc-ring"><textPath href="#ring-b">COMPUTER SCIENCE · MASTER’S · NEPAL · </textPath></text>
+              <text x="60" y="66" text-anchor="middle" class="disc-glyph">MSc</text>
+            </svg>
+            <div><h3>Master’s in Computer Science</h3><p>Nepal College of Information and Technology</p></div>
+          </li>
+          <li class="mark" data-reveal style="--d:.16s">
+            <svg class="disc" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="ring-c" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="56" class="disc-rim"/><circle cx="60" cy="60" r="33" class="disc-core"/>
+              <text class="disc-ring"><textPath href="#ring-c">COMPUTER ENGINEERING · BACHELOR’S · </textPath></text>
+              <text x="60" y="66" text-anchor="middle" class="disc-glyph">BE</text>
+            </svg>
+            <div><h3>Bachelor’s in Computer Engineering</h3><p>Khwopa Engineering College, Nepal</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 06 CONTACT ================= -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <canvas class="terrain" data-terrain="contact" aria-hidden="true"></canvas>
+      <div class="wrap contact-in">
+        <p class="label" data-scramble><span>07</span> Base camp</p>
+        <h2 class="contact-title" id="contact-title" data-reveal>Bring me the system <em>that won’t scale.</em></h2>
+        <p class="lede" data-reveal style="--d:.08s">AI systems, cloud architecture and modernization — or a lead engineer for your team. Based in Kathmandu (UTC+5:45), open to relocation and remote.</p>
+        <div class="contact-actions" data-reveal style="--d:.14s">
+          <a class="mail magnetic" href="mailto:smaharjan.codes@gmail.com?subject=Hello%20Sanjaya"><span class="mail-k">Email</span><span class="mail-v">smaharjan.codes<wbr>@gmail.com</span><span class="mail-go" aria-hidden="true">→</span></a>
+          <button class="copy" type="button" data-copy="smaharjan.codes@gmail.com"><span data-copy-label>Copy address</span></button>
+        </div>
+        <ul class="contact-links" data-reveal style="--d:.2s">
+          <li><a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="assets/cv.pdf" target="_blank" rel="noopener">Résumé (PDF) <span aria-hidden="true">↗</span></a></li>
+          <li class="ktm">It’s <time data-clock-long>--:--</time> in Kathmandu</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <p>© <span data-year>2026</span> Sanjaya Maharjan</p>
+      <p class="foot-note">Terrain generated live in your browser — WebGL, no frameworks.</p>
+      <a href="#top" class="to-top">Back to the top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

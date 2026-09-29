@@ -1,36 +1,38 @@
-# Portfolio — Sanjaya Maharjan
+# Sanjaya Maharjan — Portfolio
 
-Static one-page portfolio. Ready for **GitHub Pages**.
+Live at <https://sanjayamaharjancodes.github.io/>. Static site, no build step, no frameworks —
+GitHub Pages serves the files as-is.
 
-## Upload to a new GitHub repo
+## Concept — "Survey"
 
-1. **Create a new repo** on GitHub (e.g. `my-portfolio`). Do not add a README or .gitignore (this folder has everything).
+A live topographic survey. The hero is a WebGL contour map (fragment shader, domain-warped value
+noise) with a cursor survey lens and a live elevation readout; the career is drawn as an ascent from
+Kathmandu (1,400 m) in a pinned sideways-scrolling section; the stack is shown as geological strata.
+Night (umber) and Day (paper map) themes, toggled with a View-Transition wipe.
 
-2. **Upload this folder** as the repo root:
-   - Either push this folder’s contents as the initial commit:
-     ```bash
-     cd portfolio-package   # or whatever you named the folder
-     git init
-     git add .
-     git commit -m "Initial commit: portfolio"
-     git branch -M main
-     git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-     git push -u origin main
-     ```
-   - Or drag-and-drop the contents into GitHub’s “upload an existing repository” flow.
+| File | What it holds |
+| --- | --- |
+| `index.html` | All content (roles, projects, credentials, contact). Edit copy here. |
+| `styles.css` | Tokens for both themes at the top (`:root` / `[data-theme="day"]`), then sections in page order. |
+| `script.js` | Terrain shader + its CPU mirror, hero, ascent, work preview, filters, strata, nav/theme. Each module fails soft. |
+| `assets/` | `cv.pdf` (phone number removed), `portrait.jpg/.webp`, `og.jpg` social card. |
+| `_tools/verify.py` | Verification probe (not served — Jekyll skips `_` folders). |
 
-3. **Turn on GitHub Pages**
-   - Repo → **Settings** → **Pages**
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` (or `master`), folder **/ (root)** → Save
+Adding a role: add an `<li class="camp" data-start="YYYY.f">` to the ascent list in chronological
+order — the ridge, altitude and HUD are computed from `data-start`.
 
-4. **Your site:** `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+## Verify before pushing
 
-## Contents
+```bash
+python _tools/verify.py                  # privacy checks + desktop/phone journeys, exits non-zero on failure
+python _tools/verify.py --hq --shots out # same, plus full-quality screenshots into ./out
+```
 
-- `index.html` — single-page layout
-- `styles.css` — theme and layout
-- `script.js` — theme toggle, nav, sidebar border
-- `assets/` — images and CV (e.g. `profile.png`, `cv.pdf`)
+Needs Python with `playwright` (Chromium installed) and `pymupdf`. It checks: no phone numbers in the
+page or the CV, only the current email, WebGL + fonts load, no console errors, no horizontal overflow,
+a full scroll journey reaches the contact section with every reveal fired, filters, copy button,
+theme toggle and the phone menu.
 
-No build step. GitHub Pages serves the files as-is.
+## Previous designs
+
+Kept locally in `_alt-design-*` folders (untracked, not served).
