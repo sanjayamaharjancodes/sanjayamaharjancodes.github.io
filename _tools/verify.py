@@ -318,6 +318,15 @@ def fallbacks(browser, url):
         .filter(e => { const s = getComputedStyle(e); return s.opacity === '0' || s.visibility === 'hidden' || s.display === 'none' }).length""")
     check(hidden == 0, f"no-JS: all content visible ({hidden} hidden)")
     ctx.close()
+    for w, h in [(1366, 657), (1280, 600), (390, 640)]:
+        ctx = browser.new_context(viewport={"width": w, "height": h})
+        page = ctx.new_page()
+        page.goto(url, wait_until="networkidle")
+        page.wait_for_function("() => document.documentElement.classList.contains('ready')", timeout=8000)
+        page.wait_for_timeout(2600)
+        gap = page.evaluate("() => document.querySelector('.eyebrow').getBoundingClientRect().top - document.querySelector('.hero-hud').getBoundingClientRect().bottom")
+        check(gap > 4, f"hero label and survey label don't collide at {w}x{h} (gap {gap:.0f}px)")
+        ctx.close()
     ctx = browser.new_context(viewport={"width": 1440, "height": 900}, reduced_motion="reduce")
     page = ctx.new_page()
     errors = []

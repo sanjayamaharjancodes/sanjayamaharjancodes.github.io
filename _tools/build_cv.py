@@ -64,21 +64,21 @@ story = [
               "linkedin.com/in/sanjaya-maharjan · github.com/sanjayamaharjancodes · sanjayamaharjancodes.github.io", S["contact"]),
     Spacer(1, 4),
     *h("Summary"),
-    Paragraph("AI and cloud architect with 14 years of shipping production software since 2012. I build AI agents and LLM applications — "
-              "including an agentic corporate-footprint mapper for Monotype — on the cloud foundations I have delivered for Monotype, HP, "
-              "Deloitte and the State of Colorado: .NET microservices and secure APIs, React and Angular front-ends, and AWS infrastructure "
-              "defined in Terraform. I own the architecture, write the code, and stay for production.", S["body"]),
+    Paragraph("AI and cloud architect with fourteen years of production engineering since 2012. I build AI agents and LLM applications, "
+              "including an agentic corporate-footprint mapper for Monotype, and the platforms they run on: .NET microservices and secure APIs, "
+              "React and Angular front-ends, and AWS infrastructure defined in Terraform, delivered for Monotype, HP, Deloitte and the State of "
+              "Colorado. I own the architecture, write the code, and stay for production.", S["body"]),
 
     *h("AI &amp; ML work"),
     *bullets([
         "<b>Corporate Footprint Mapper</b> (built for Monotype, private): an agentic tool that maps a company's legal entities from the "
         "ultimate parent to the nth subsidiary and attaches each entity's brands, websites, apps and digital assets, with web scraping built in.",
         "<b>Agent organization</b> (R&amp;D, private): role-separated agents on Claude Code — CEO, Strategist, Researcher, Builder, Reviewer, "
-        "Growth, Comms, Legal and Investor. Cited-source rule, a Reviewer that can block any plan, auditable memory in files and git, "
-        "scheduled cloud runs. 606 commits and 145 reviews over 89 active days (counted September 2026).",
+        "Growth, Comms, Legal and Investor. Every claim needs a cited source and a Reviewer can block any plan; memory in files and git keeps "
+        "every decision auditable, and scheduled cloud runs keep it working. 606 commits and 145 reviews over 89 active days (counted September 2026).",
         "<b>ML in client work:</b> ML-driven font impression and emotion analysis for Fontworks' LETS and Monotype's Research 360.",
-        "<b>Open source:</b> Fake-Image-Detector — hybrid ML and analytical image forensics (sensor noise, FFT/DCT spectra, resampling, "
-        "lighting physics) with ONNX inference, a model registry and drift detection; scrape-diagnose — a CLI that explains scraper 403/429/empty-HTML "
+        "<b>Open source:</b> Fake-Image-Detector, which detects manipulated images by combining ML with analytical signals (sensor noise, "
+        "FFT/DCT spectra, resampling, lighting physics), with ONNX inference, a model registry and drift detection; scrape-diagnose — a CLI that explains scraper 403/429/empty-HTML "
         "failures; json-typed-code — a VS Code extension that turns JSON into TypeScript, Python, Go or Rust types.",
         "<b>R&amp;D:</b> IncidentAtlas (reliability agent with CockroachDB vector-indexed memory, CockroachDB × AWS agentic-memory challenge); "
         "H-VF Engine (VAE-generated variable fonts with CNN scoring); Disaster Damage Assessment (UNet and Siamese change detection, Grad-CAM); "
@@ -88,29 +88,29 @@ story = [
 
     *h("Experience"),
     role("Lead Software Engineer", "UBA Solutions (Monotype partner), Kathmandu", "2024 – Present", [
-        "Own architecture for Research 360 — raw font metadata turned into a structured analysis and licensing platform.",
-        "Scalable deployment strategies for high-traffic font services (LETS, Fontplus); better reliability and release safety.",
-        "ML-driven font impression and emotion analysis; full-stack .NET, React and AWS; loading and data-throughput optimizations.",
-        "Cloudflare edge and bot protection; monitoring and alerting.",
+        "Own architecture for Research 360, which turns raw font metadata into a structured analysis and licensing platform.",
+        "Set scalable deployment strategies for high-traffic font services (LETS, Fontplus), improving reliability and release safety.",
+        "ML-driven font impression and emotion analysis; full-stack .NET, React and AWS, with performance gains from loading and data-throughput optimizations.",
+        "Set up Cloudflare edge delivery and bot protection, with monitoring and alerting.",
     ]),
     role("Senior Software Engineer", "HP Inc., Texas", "2024 – 2025", [
         "Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for the HP Workforce Experience Platform.",
-        "Secure REST APIs documented with OpenAPI/Swagger; OAuth/JWT and secrets management; Terraform and Azure DevOps CI/CD.",
-        "React performance: lazy loading, route preloading and reusable TypeScript components; performance and observability.",
+        "Architected secure REST APIs (OpenAPI/Swagger) with OAuth/JWT and secrets management; automated Terraform and Azure DevOps CI/CD.",
+        "Improved React performance with lazy loading and route preloading, and built reusable TypeScript components.",
     ]),
     role("Senior Software Engineer", "Deloitte, Colorado", "2023 – 2024", [
         "Led API platform delivery for the State of Colorado's unemployment insurance platform: OAuth and API-key security, traffic management, analytics.",
-        "Workflow microservices and API Gateway integration with the IBM content engine on .NET Core; SQS-backed async workloads; Redis caching.",
-        "Document and profile management in Angular 18 and React; SSO and high availability; Azure DevOps CI/CD.",
+        "Built workflow microservices and API Gateway integration with the IBM content engine on .NET Core; implemented SQS-backed async workloads and Redis caching.",
+        "Delivered document and profile management in Angular 18 and React, with SSO, high availability and Azure DevOps CI/CD.",
     ]),
     role("Senior Software Engineer", "Dwaith Infotech, Minnesota (remote)", "May – Sep 2023", [
         "Modernized a legacy architecture onto .NET microservices handling 1M+ requests a day; React and Redux with TypeScript UI patterns.",
-        "PostgreSQL, MySQL, MongoDB and DynamoDB; AWS and Azure; Docker and Kubernetes; Redis caching, async processing, monitoring.",
+        "Optimized SQL and NoSQL stores (PostgreSQL, MySQL, MongoDB, DynamoDB) and containerized deployments; added Redis caching, async processing and monitoring.",
     ]),
     role("Solution Architect / Lead Software Engineer", "UBA Solutions (Monotype partner), Nepal", "2018 – 2023", [
-        "Scaled and modernized MyFonts, Fonts.com, Linotype and FontShop on AWS — EC2 autoscaling, load balancers, RDS read replicas, S3.",
+        "Scaled and modernized MyFonts, Fonts.com, Linotype and FontShop on AWS with EC2 autoscaling, load balancers, RDS read replicas and S3.",
         "Migrated on-prem systems to AWS with Terraform; CI/CD with Jenkins and Octopus; improved monitoring and incident response.",
-        "Security: OAuth/JWT, SSO, 3D Secure, CyberSource and Cloudflare bot protection; Docker and Kubernetes; caching and CDN.",
+        "Strengthened security with OAuth/JWT, SSO, 3D Secure, CyberSource and Cloudflare bot protection; ran Docker and Kubernetes; optimized caching and CDN.",
     ]),
     role("Lead Software Engineer", "Novelty Technology (North Carolina, Nepal office)", "2017 – 2018", [
         "Led a microservices transition and full-stack delivery (Node.js, Angular, RxJS, ASP.NET Core) for CollegeRecon and Alithias healthcare analytics.",
@@ -119,7 +119,7 @@ story = [
         "Owned infrastructure and software design; PayPal and Adyen integrations for Leslinq.com, a Japanese tobacco inventory system and Banaunu.com.",
     ]),
     role("Software Engineer", "Hatra Inc. and Channakya Software, Nepal", "2012 – 2014", [
-        "C#, ASP.NET, Web API, Entity Framework and MSSQL: a financial risk-management assistant, a Bank of Canada survey platform and the Subisu inventory system.",
+        "Built a financial risk-management assistant, a Bank of Canada survey platform and the Subisu inventory system in C#, ASP.NET, Web API, Entity Framework and MSSQL.",
     ]),
 
     *h("Skills"),
