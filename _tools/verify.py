@@ -336,6 +336,7 @@ def main():
     ap.add_argument("--shots", default="")
     ap.add_argument("--only", default="")
     ap.add_argument("--hq", action="store_true", help="lock full render quality (for review screenshots)")
+    ap.add_argument("--url", default="", help="run the journeys against a deployed URL instead of a local server")
     args = ap.parse_args()
     shots = pathlib.Path(args.shots) if args.shots else None
     if shots:
@@ -343,6 +344,8 @@ def main():
     static_checks()
     from playwright.sync_api import sync_playwright
     srv, url = serve()
+    if args.url:
+        url = args.url if args.url.endswith("/") else args.url + "/"
     try:
         with sync_playwright() as p:
             gpu = ["--headless=new", "--use-angle=d3d11", "--enable-gpu"] if sys.platform == "win32" else ["--use-angle=swiftshader"]
