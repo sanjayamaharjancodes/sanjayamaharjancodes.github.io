@@ -13,11 +13,20 @@
   <meta property="og:image" content="https://sanjayamaharjancodes.github.io/assets/og.jpg">
   <meta property="og:url" content="https://sanjayamaharjancodes.github.io/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312100e'/%3E%3Cg fill='none' stroke='%23e2956b' stroke-width='3'%3E%3Cpath d='M32 10c12 0 22 8 21 20s-9 24-22 23S9 43 11 30s9-20 21-20z'/%3E%3Cpath d='M32 20c7 0 12 5 12 11s-5 13-12 13-11-6-11-12 4-12 11-12z' opacity='.7'/%3E%3Ccircle cx='33' cy='32' r='3.5' fill='%23e2956b' stroke='none'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&family=Martian+Mono:wdth,wght@75..112.5,300..600&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Sanjaya Maharjan","jobTitle":"AI & Cloud Architect",
+   "url":"https://sanjayamaharjancodes.github.io/","email":"mailto:smaharjan.codes@gmail.com",
+   "address":{"@type":"PostalAddress","addressLocality":"Kathmandu","addressCountry":"NP"},
+   "sameAs":["https://www.linkedin.com/in/sanjaya-maharjan","https://github.com/sanjayamaharjancodes"],
+   "knowsAbout":["AI agents","Large language models","Retrieval-augmented generation","Web scraping","Machine learning","AWS","Cloud architecture",".NET","React"]}
+  </script>
   <script>
     /* Theme before first paint; JS-gated motion states with a failsafe so content never stays hidden. */
     (function () {
@@ -34,10 +43,9 @@
   <!-- ================= NAV ================= -->
   <header class="nav" id="nav">
     <a class="brand" href="#top" aria-label="Sanjaya Maharjan — back to top">
-      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M20 4c9 0 16 6 15.4 15S28.6 36.6 19.4 36 3.6 28 4.6 19 11 4 20 4z"/>
-        <path d="M20 11c5 0 9 3.6 8.6 8.4S24.8 29 19.8 28.8s-8.6-4.2-8.2-9S15 11 20 11z"/>
-        <circle cx="20.4" cy="19.6" r="2.6"/>
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M7 52 L21 22 L31 38 L43 12 L57 52" pathLength="1"/>
+        <circle cx="43" cy="12" r="5.2"/>
       </svg>
       <span class="brand-text">Sanjaya <b>Maharjan</b></span>
     </a>
@@ -103,7 +111,7 @@
           <span class="name-line" aria-hidden="true">Maharjan</span>
         </h1>
         <div class="hero-foot">
-          <p class="hero-sub hero-in" style="--d:.55s">I design AI systems that hold up in production — LLM apps, retrieval and multi‑agent workflows — on the cloud foundations I’ve built since 2012 for <em>Monotype</em>, <em>HP</em>, <em>Deloitte</em> and the State of Colorado.</p>
+          <p class="hero-sub hero-in" style="--d:.55s">I build AI agents that map who owns what — from a company’s ultimate parent to its nth subsidiary, for <em>Monotype</em> — on the cloud foundations I’ve built since 2012 for <em>HP</em>, <em>Deloitte</em> and the State of Colorado.</p>
           <div class="hero-cta hero-in" style="--d:.7s">
             <a class="btn btn-solid magnetic" href="mailto:smaharjan.codes@gmail.com?subject=Hello%20Sanjaya">Start a conversation</a>
             <a class="btn btn-ghost magnetic" href="#ascent">Trace the ascent <span aria-hidden="true">↓</span></a>
@@ -135,12 +143,18 @@
             <p data-reveal>I’m an AI and cloud architect based in Kathmandu. Most of my work lives where enterprise meets scale: <strong>LLM applications and agents</strong> on top of <strong>.NET microservices and secure APIs</strong>, <strong>React and Angular</strong> front‑ends, and <strong>AWS infrastructure defined in Terraform</strong>.</p>
             <p data-reveal style="--d:.08s">For more than seven years I’ve worked on Monotype’s font ecosystem — Fonts.com, MyFonts, Linotype, FontShop — alongside Fontworks and Fontplus in Japan. I’ve also owned microservices and AWS delivery for HP’s Workforce Experience Platform, and led workflow services for the State of Colorado’s unemployment insurance system with Deloitte.</p>
             <p data-reveal style="--d:.12s">More and more of my work is AI: LLM applications and retrieval over company data, multi‑agent systems with review gates and persistent memory, and cloud AI services wired into platforms that already have to be secure, observable and fast.</p>
-            <p data-reveal style="--d:.16s" class="bio-meta">Kathmandu · open to relocation · comfortable across US time zones</p>
+            <dl class="glance" data-reveal style="--d:.16s">
+              <div><dt>Now</dt><dd>Lead Software Engineer, UBA Solutions (Monotype partner)</dd></div>
+              <div><dt>Focus</dt><dd>AI agents · LLM apps · cloud architecture</dd></div>
+              <div><dt>Core stack</dt><dd>.NET · Python · React · AWS · Terraform</dd></div>
+              <div><dt>Based</dt><dd>Kathmandu (UTC+5:45) · open to relocation and remote</dd></div>
+              <div><dt>Credentials</dt><dd>AWS Certified Developer · MSc Computer Science</dd></div>
+            </dl>
 
             <dl class="stats">
               <div class="stat" data-reveal><dt>Years shipping production software</dt><dd><span data-count data-years-since="2012">14</span></dd></div>
               <div class="stat" data-reveal style="--d:.06s"><dt>Daily requests through .NET microservices I owned</dt><dd><span data-count="1">1</span>M<sup>+</sup></dd></div>
-              <div class="stat" data-reveal style="--d:.12s"><dt>Companies, from Kathmandu to Texas</dt><dd><span data-count="8">8</span></dd></div>
+              <div class="stat" data-reveal style="--d:.12s"><dt>AI &amp; ML systems built, from agents to vision models</dt><dd><span data-count="12">12</span></dd></div>
               <div class="stat" data-reveal style="--d:.18s"><dt>Platforms built, scaled or modernized</dt><dd><span data-count="20">20</span></dd></div>
             </dl>
           </div>
@@ -154,21 +168,38 @@
         <p class="label" data-scramble><span>02</span> Intelligence</p>
         <div class="ai-head">
           <h2 class="h2" id="ai-title" data-reveal>AI that survives <span class="stretch">production.</span></h2>
-          <p class="lede" data-reveal style="--d:.08s">Most AI projects stall in the same place: production. Retrieval goes stale, agents loop, models invent facts, and nobody forecast the bill. Fourteen years of cloud architecture is the half of AI most teams are missing — I bring both halves.</p>
+          <p class="lede" data-reveal style="--d:.08s">Most AI projects stall between the demo and real users. Retrieval goes stale, agents loop, models invent facts, and nobody forecasts the bill. Fourteen years of cloud architecture is the half of AI most teams are missing — I bring both halves.</p>
         </div>
 
-        <ul class="ai-grid">
-          <li class="ai-card" data-reveal><p class="ai-k">01</p><h3>LLM apps &amp; RAG</h3><p>Assistants and search over your own data — chunking, embeddings and vector retrieval behind the APIs your product already has.</p></li>
-          <li class="ai-card" data-reveal style="--d:.06s"><p class="ai-k">02</p><h3>AI agents</h3><p>Role‑separated agents with tools, review gates and persistent memory — built to be audited, not just demoed.</p></li>
-          <li class="ai-card" data-reveal style="--d:.12s"><p class="ai-k">03</p><h3>Cloud AI services</h3><p>AWS Bedrock and SageMaker, Azure OpenAI, OpenAI and Anthropic APIs — under the same security, observability and cost controls as the rest of the platform.</p></li>
-          <li class="ai-card" data-reveal style="--d:.18s"><p class="ai-k">04</p><h3>ML &amp; NLP in production</h3><p>ML‑driven font impression and emotion analysis for Fontworks’ LETS and Monotype’s Research 360; NLP extraction that scores its own confidence.</p></li>
-        </ul>
+        <article class="agents case-flip" data-reveal aria-labelledby="tree-title">
+          <div class="agents-copy">
+            <p class="lab-kicker"><span class="lab-dot" aria-hidden="true"></span>Featured · agentic system built for Monotype</p>
+            <h3 class="lab-title" id="tree-title">From ultimate parent to the nth subsidiary</h3>
+            <p class="lab-sub">Corporate footprint mapping · private, client work</p>
+            <p class="lab-desc">An agentic tool that maps who owns what. Agents collect a company’s legal entities, walk the ownership tree from the ultimate parent down to the nth child, and attach each entity’s footprint — brands, websites, apps and other digital assets — with web scraping built in. The result is one navigable map of a corporate group and everything it operates online.</p>
+            <ol class="agents-log" data-tree-log aria-label="What the agents do">
+              <li>Resolve the ultimate parent</li>
+              <li>Walk subsidiaries to the nth level</li>
+              <li>Attach brands to legal entities</li>
+              <li>Collect websites, apps and digital assets</li>
+              <li>Map the complete footprint</li>
+            </ol>
+          </div>
+          <svg class="agents-map tree-map" data-tree viewBox="0 0 520 430" role="img" aria-label="Illustration: agents grow an ownership tree from an ultimate parent through subsidiaries and brands to websites, apps and digital assets"></svg>
+        </article>
 
-        <article class="agents" data-reveal aria-labelledby="agents-title">
+        <article class="agents agents-pair" data-reveal aria-labelledby="agents-title">
           <div class="agents-copy">
             <p class="lab-kicker"><span class="lab-dot" aria-hidden="true"></span>Flagship R&amp;D · multi‑agent system</p>
             <h3 class="lab-title" id="agents-title">An organization run by agents</h3>
             <p class="lab-desc">Role‑separated agents on Claude Code — a CEO, Strategist, Researcher, Builder and Reviewer, plus Growth, Comms, Legal and Investor. Every factual claim needs a cited source, the Reviewer can block any plan, memory lives in files and git so each decision is auditable, and scheduled cloud runs keep the organization working between sessions. One governance cycle took an idea from proposal to a live, shipped website in about four hours.</p>
+            <dl class="agents-stats">
+              <div><dt>Commits</dt><dd>606</dd></div>
+              <div><dt>Reviews</dt><dd>145</dd></div>
+              <div><dt>Active days</dt><dd>89</dd></div>
+              <div><dt>Memory entries</dt><dd>607</dd></div>
+            </dl>
+            <p class="agents-src">Counted from the repository’s git history and memory folder, September 2026.</p>
             <ol class="agents-log" data-agents-log aria-label="One governance cycle">
               <li>Strategist proposes three bets</li>
               <li>Reviewer blocks an unverified claim</li>
@@ -180,24 +211,79 @@
           <svg class="agents-map" data-agents viewBox="0 0 520 440" role="img" aria-label="Nine agents around a central Reviewer gate, replaying one governance cycle"></svg>
         </article>
 
-        <article class="lab" data-reveal aria-labelledby="lab-title">
-          <div class="lab-head">
-            <p class="lab-kicker"><span class="lab-dot" aria-hidden="true"></span>In the lab · LLM pipeline</p>
-            <h3 class="lab-title" id="lab-title">IntelligentResume</h3>
-            <p class="lab-sub">Private repository · demo on request</p>
+        <div class="proof">
+          <div class="proof-head">
+            <h3 class="h3" data-reveal>Proof you can open</h3>
+            <a class="proof-all" href="https://github.com/sanjayamaharjancodes" target="_blank" rel="noopener" data-reveal>All repositories on GitHub <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="lab-desc">An LLM pipeline that turns a few signals — companies, roles, project names — into a tailored résumé and portfolio. Llama 3.1 runs locally through Ollama with a Hugging Face fallback; spaCy extraction scores its own confidence; guardrails reject invented metrics and tools; and layouts are solved from design constraints instead of templates.</p>
-          <ol class="pipeline">
-            <li style="--i:0"><b>Signals</b><span>companies, roles, projects</span></li>
-            <li style="--i:1"><b>Extract</b><span>spaCy · confidence scoring</span></li>
-            <li style="--i:2"><b>Infer</b><span>Llama 3.1 via Ollama · HF fallback</span></li>
-            <li style="--i:3"><b>Guardrails</b><span>no invented metrics or tools</span></li>
-            <li style="--i:4"><b>Tailor</b><span>job‑description matching</span></li>
-            <li style="--i:5"><b>Layout</b><span>constraint solver, no templates</span></li>
-            <li style="--i:6"><b>Export</b><span>PDF · HTML · Markdown · site</span></li>
-          </ol>
-          <p class="lab-stack">Python · FastAPI · Ollama · Hugging Face · spaCy · Redis · React · Docker</p>
-        </article>
+          <ul class="proof-grid">
+            <li class="repo" data-reveal>
+              <p class="repo-k">Open source · ML platform</p>
+              <h4><a href="https://github.com/sanjayamaharjancodes/Fake-Image-Detector" target="_blank" rel="noopener">Fake-Image-Detector</a></h4>
+              <svg class="fid" viewBox="0 0 320 132" role="img" aria-label="Pipeline: an image is checked by four signals — sensor noise, frequency spectra, resampling and lighting physics — fused with ONNX models into an evidence verdict">
+                <rect class="fid-box" x="4" y="50" width="44" height="32" rx="2"/><text class="fid-t" x="26" y="70" text-anchor="middle">IMAGE</text>
+                <g class="fid-lanes">
+                  <path d="M48 66 C70 66 74 16 96 16"/><path d="M48 66 C70 66 74 50 96 50"/><path d="M48 66 C70 66 74 82 96 82"/><path d="M48 66 C70 66 74 116 96 116"/>
+                  <path d="M196 16 C216 16 218 66 232 66"/><path d="M196 50 C216 50 218 66 232 66"/><path d="M196 82 C216 82 218 66 232 66"/><path d="M196 116 C216 116 218 66 232 66"/>
+                </g>
+                <g class="fid-sig"><rect x="96" y="6" width="100" height="20" rx="2"/><text x="146" y="20" text-anchor="middle">NOISE · PRNU</text></g>
+                <g class="fid-sig"><rect x="96" y="40" width="100" height="20" rx="2"/><text x="146" y="54" text-anchor="middle">FFT / DCT</text></g>
+                <g class="fid-sig"><rect x="96" y="72" width="100" height="20" rx="2"/><text x="146" y="86" text-anchor="middle">RESAMPLING</text></g>
+                <g class="fid-sig"><rect x="96" y="106" width="100" height="20" rx="2"/><text x="146" y="120" text-anchor="middle">PHYSICS</text></g>
+                <rect class="fid-box hot" x="232" y="48" width="86" height="36" rx="2"/><text class="fid-t" x="275" y="63" text-anchor="middle">ONNX + RULES</text><text class="fid-t dim" x="275" y="76" text-anchor="middle">EVIDENCE</text>
+              </svg>
+              <p>Hybrid ML and analytical detection of manipulated images — sensor noise (PRNU), FFT/DCT spectra, resampling and lighting physics. ONNX inference, a model registry, drift detection, audit logs and a rate‑limited API with batch mode.</p>
+              <p class="repo-s">Python · ONNX · Docker · Flutter <span aria-hidden="true">↗</span></p>
+            </li>
+            <li class="repo" data-reveal style="--d:.06s">
+              <p class="repo-k">Open source · scraping</p>
+              <h4><a href="https://github.com/sanjayamaharjancodes/scrape-diagnose" target="_blank" rel="noopener">scrape-diagnose</a></h4>
+              <p>Works out why a scraper gets 403, 429 or empty HTML — and whether headers, JavaScript rendering or a paid proxy is actually needed.</p>
+              <code class="repo-cmd">npx --yes github:sanjayamaharjancodes/scrape-diagnose -- https://example.com/</code>
+              <pre class="repo-out" aria-label="Sample output from the project's fixture transcript"><span class="d">Decision:</span> FAIL
+  direct                  403  FAIL
+  direct-browser-headers  403  FAIL
+<span class="d">$</span> … --live --max-total-credits 25
+<span class="d">Minimum passing configuration:</span>
+  premium=true, render=false</pre>
+              <p class="repo-cap">Sample output from the project’s fixture transcript</p>
+              <p class="repo-s">Node.js · CLI · GitHub Actions · <a class="repo-x" href="https://sanjayamaharjancodes.github.io/scrape-diagnose/" target="_blank" rel="noopener">Read&nbsp;the&nbsp;guide&nbsp;↗</a></p>
+            </li>
+            <li class="repo" data-reveal style="--d:.12s">
+              <p class="repo-k">Open source · developer tooling</p>
+              <h4><a href="https://github.com/sanjayamaharjancodes/json-typed-code" target="_blank" rel="noopener">json-typed-code</a></h4>
+              <img class="repo-media" src="assets/work/json-typed-code.webp" width="400" height="302" loading="lazy" decoding="async" alt="Demo: pasting JSON as TypeScript types in VS Code">
+              <p>A VS Code extension: paste JSON, get idiomatic TypeScript, Python (dataclass or Pydantic v2), Go or Rust types — deterministic and offline.</p>
+              <p class="repo-s">TypeScript · VS Code <span aria-hidden="true">↗</span></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="labgrid">
+          <div class="proof-head">
+            <h3 class="h3" data-reveal>From the lab <em>— private R&amp;D</em></h3>
+            <a class="proof-all" href="mailto:smaharjan.codes@gmail.com?subject=Code%20walkthrough%20request" data-reveal>Ask for a code walkthrough <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="lab-list">
+            <li class="lab-item" id="lab-incident" data-reveal><details><summary><span class="lab-k">Agent · vector memory</span><span class="lab-n">IncidentAtlas</span><span class="lab-1">Reliability agent with vector‑indexed incident memory</span></summary><p>A guarded reliability agent that turns incident outcomes into durable memory — tenant‑scoped precedent through CockroachDB distributed vector indexing, failed fixes down‑ranked, read‑only diagnostics only. Built for the CockroachDB × AWS “Build with Agentic Memory” challenge.</p><p class="repo-s">TypeScript · CockroachDB · AWS Lambda</p></details></li>
+            <li class="lab-item" id="lab-hvf" data-reveal><details><summary><span class="lab-k">Generative AI · typography</span><span class="lab-n">H‑VF Engine</span><span class="lab-1">Variable fonts generated by a VAE, scored by a CNN</span></summary><p>Variable fonts with semantic axes: a VAE learns glyph embeddings and generates Bézier control points, a CNN scores legibility and aesthetics, and FontTools exports OTF and WOFF2.</p><p class="repo-s">Python · FastAPI · React</p></details></li>
+            <li class="lab-item" id="lab-disaster" data-reveal><details><summary><span class="lab-k">Computer vision</span><span class="lab-n">Disaster Damage Assessment</span><span class="lab-1">Satellite change detection with UNet and Siamese networks</span></summary><p>Before/after satellite imagery in, pixel‑level damage maps out — UNet segmentation, Siamese difference networks, NDVI/NDWI deltas and Grad‑CAM explainability.</p><p class="repo-s">Python · FastAPI · Streamlit</p></details></li>
+            <li class="lab-item" id="lab-resume" data-reveal><details><summary><span class="lab-k">LLM pipeline</span><span class="lab-n">IntelligentResume</span><span class="lab-1">LLM pipeline for tailored résumés, with guardrails</span></summary><p>A few signals in, a tailored résumé and portfolio out — Llama 3.1 through Ollama with a Hugging Face fallback, spaCy extraction with confidence scoring, and guardrails against invented metrics.</p><p class="repo-s">Python · FastAPI · Redis · Docker</p></details></li>
+            <li class="lab-item" id="lab-dcat" data-reveal><details><summary><span class="lab-k">Adaptive ML</span><span class="lab-n">D‑CAT</span><span class="lab-1">Typography that adapts to the reader with reinforcement learning</span></summary><p>Typography that adapts to the reader in real time — regression and reinforcement‑learning models driven by reading behaviour, screen context and optional eye tracking.</p><p class="repo-s">TypeScript · FastAPI · ML</p></details></li>
+            <li class="lab-item" id="lab-air" data-reveal><details><summary><span class="lab-k">Forecasting</span><span class="lab-n">Air Quality Intelligence</span><span class="lab-1">Ensemble air‑quality forecasting with anomaly alerts</span></summary><p>Prophet, SARIMA and LSTM forecasts fused into a weighted ensemble, with Isolation Forest anomaly alerts and spatial interpolation across regions.</p><p class="repo-s">Python · time series</p></details></li>
+            <li class="lab-item" id="lab-health" data-reveal><details><summary><span class="lab-k">Forecasting · simulation</span><span class="lab-n">Public Health Early Warning</span><span class="lab-1">Outbreak forecasting beside an SEIR policy simulator</span></summary><p>Random Forest and gradient‑boosting outbreak forecasts alongside a mobility‑adjusted, age‑stratified SEIR simulator for testing interventions.</p><p class="repo-s">Python · epidemiological modelling</p></details></li>
+            <li class="lab-item" id="lab-ace" data-reveal><details><summary><span class="lab-k">Applied ML · competition</span><span class="lab-n">Trace the Ace</span><span class="lab-1">Reproducible transcript classifier for a DrivenData challenge</span></summary><p>A reproducible transcript classifier for a DrivenData challenge — role‑aware TF‑IDF and logistic regression, no network calls or hosted model at inference.</p><p class="repo-s">Python · reproducible pipeline</p></details></li>
+          </ul>
+        </div>
+
+        <div class="whatibuild">
+          <h3 class="h3" data-reveal>What I build</h3>
+        <ul class="ai-grid">
+          <li class="ai-card" data-reveal><p class="ai-k">01</p><h3>LLM apps, RAG &amp; cloud AI</h3><p>Retrieval over your own data on Bedrock, SageMaker, Azure OpenAI, OpenAI or Anthropic — inside your platform’s security, observability and cost controls.</p><p class="ai-ev">See <a href="#lab-incident">IncidentAtlas</a> · <a href="#lab-resume">IntelligentResume</a></p></li>
+          <li class="ai-card" data-reveal style="--d:.06s"><p class="ai-k">02</p><h3>AI agents</h3><p>Role‑separated agents with tools, scraping, review gates and memory — built to be audited, not just demoed.</p><p class="ai-ev">See <a href="#tree-title">the Monotype footprint mapper</a> · <a href="#agents-title">the agent organization</a> · <a href="#lab-incident">IncidentAtlas</a></p></li>
+          <li class="ai-card" data-reveal style="--d:.12s"><p class="ai-k">03</p><h3>ML &amp; deep learning</h3><p>Vision, generative and forecasting models — from image forensics with drift detection to VAE‑generated fonts.</p><p class="ai-ev">See <a href="https://github.com/sanjayamaharjancodes/Fake-Image-Detector" target="_blank" rel="noopener">Fake-Image-Detector ↗</a> · <a href="#lab-disaster">damage assessment</a> · <a href="#lab-hvf">H‑VF Engine</a></p></li>
+        </ul>
+        </div>
 
         <div class="ai-bring" data-reveal>
           <p>What demos skip and I don’t</p>
@@ -230,6 +316,7 @@
                   <h3>Software Engineer</h3>
                   <p class="camp-org">Channakya Software <span>Kathmandu</span></p>
                   <p>C#, ASP.NET and MSSQL across the full development lifecycle — the Subisu inventory management system.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>C#, ASP.NET and MSSQL across the full development lifecycle.</li><li>Built the Subisu inventory management system and its MSSQL database objects.</li></ul></details>
                   <ul class="tags"><li>ASP.NET</li><li>MSSQL</li><li>SDLC</li></ul>
                 </article>
               </li>
@@ -239,6 +326,7 @@
                   <h3>Software Engineer</h3>
                   <p class="camp-org">Hatra Inc. <span>Nepal</span></p>
                   <p>API and database design for a financial risk‑management assistant and an online survey platform for the Bank of Canada.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>API and database design in C#, Web API and Entity Framework.</li><li>Financial Risk Management Assistant application.</li><li>Online survey application for the Bank of Canada, with associate information management.</li></ul></details>
                   <ul class="tags"><li>C#</li><li>Web API</li><li>Entity Framework</li></ul>
                 </article>
               </li>
@@ -248,6 +336,7 @@
                   <h3>Senior Software Engineer</h3>
                   <p class="camp-org">Grafi Offshore <span>Nepal</span></p>
                   <p>Owned infrastructure and software design; PayPal and Adyen integrations for Leslinq.com, a Japanese tobacco inventory system and Banaunu.com.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Owned infrastructure and software design.</li><li>Stored procedures and LINQ; PayPal and Adyen payment integrations.</li><li>Delivered the Japanese tobacco inventory system, Leslinq.com and Banaunu.com.</li></ul></details>
                   <ul class="tags"><li>.NET</li><li>SQL</li><li>Payments</li></ul>
                 </article>
               </li>
@@ -257,6 +346,7 @@
                   <h3>Lead Software Engineer</h3>
                   <p class="camp-org">Novelty Technology <span>North Carolina · Nepal office</span></p>
                   <p>Led a microservices transition and full‑stack delivery for CollegeRecon and Alithias healthcare analytics.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Led the microservices transition and full‑stack delivery.</li><li>Node.js, Angular and RxJS over ASP.NET Core Web APIs.</li><li>Architecture and API design for CollegeRecon and Alithias healthcare analytics.</li></ul></details>
                   <ul class="tags"><li>Angular</li><li>ASP.NET Core</li><li>Node.js</li></ul>
                 </article>
               </li>
@@ -266,6 +356,7 @@
                   <h3>Solution Architect / Lead Engineer</h3>
                   <p class="camp-org">UBA Solutions · Monotype partner <span>Nepal</span></p>
                   <p>Scaled Fonts.com, Linotype and FontShop on AWS — autoscaling, RDS read replicas, CDN — and moved on‑prem systems to the cloud. Jenkins and Octopus CI/CD, 3D Secure, bot protection.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Scaled and modernized MyFonts, Fonts.com, Linotype and FontShop on AWS — EC2 autoscaling, load balancers, RDS read replicas, S3.</li><li>Migrated on‑prem systems to AWS, with infrastructure provisioned in Terraform.</li><li>CI/CD with Jenkins and Octopus; improved monitoring and incident response.</li><li>Security: OAuth/JWT, SSO, 3D Secure, CyberSource and Cloudflare bot protection.</li><li>Docker and Kubernetes; Angular and React; caching, CDN and data‑layer optimization.</li></ul></details>
                   <ul class="tags"><li>AWS</li><li>Kubernetes</li><li>CI/CD</li></ul>
                 </article>
               </li>
@@ -275,6 +366,7 @@
                   <h3>Senior Software Engineer</h3>
                   <p class="camp-org">Dwaith Infotech <span>Minnesota · remote</span></p>
                   <p>Legacy modernization onto .NET microservices handling <strong>1M+ requests a day</strong> — Redis caching, async processing, monitoring and alerting.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Modernized a legacy architecture onto .NET microservices handling 1M+ requests a day.</li><li>High‑performance React and Redux front‑end with TypeScript UI patterns.</li><li>PostgreSQL, MySQL, MongoDB and DynamoDB; AWS and Azure; Docker and Kubernetes.</li><li>Redis caching, async processing, monitoring and alerting.</li></ul></details>
                   <ul class="tags"><li>Microservices</li><li>React</li><li>Kubernetes</li></ul>
                 </article>
               </li>
@@ -284,6 +376,7 @@
                   <h3>Senior Software Engineer</h3>
                   <p class="camp-org">Deloitte <span>Colorado</span></p>
                   <p>Workflow microservices and API Gateway integration for the State of Colorado’s unemployment insurance platform — SSO, high availability, Angular 18 and React.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Led API platform delivery: OAuth and API‑key security, traffic management and analytics.</li><li>Workflow microservices and API Gateway integration with the IBM content engine, on .NET Core.</li><li>Async workloads on SQS and Redis caching to reduce application load.</li><li>Document and profile management in Angular 18 and React; SSO and high availability.</li><li>CI/CD with Azure DevOps.</li></ul></details>
                   <ul class="tags"><li>.NET Core</li><li>Angular</li><li>AWS</li></ul>
                 </article>
               </li>
@@ -293,6 +386,7 @@
                   <h3>Senior Software Engineer</h3>
                   <p class="camp-org">HP Inc. <span>Texas</span></p>
                   <p>Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for the HP Workforce Experience Platform, with Terraform and Azure DevOps CI/CD.</p>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Owned microservices design and AWS delivery — ECS, RDS, Lambda, VPC.</li><li>Secure REST APIs documented with OpenAPI/Swagger; OAuth/JWT and secrets management.</li><li>React performance: lazy loading, route preloading and reusable TypeScript components.</li><li>Terraform and Azure DevOps CI/CD; performance and observability.</li></ul></details>
                   <ul class="tags"><li>.NET</li><li>AWS</li><li>Terraform</li></ul>
                 </article>
               </li>
@@ -302,7 +396,8 @@
                   <h3>Lead Software Engineer</h3>
                   <p class="camp-org">UBA Solutions · Monotype partner <span>Kathmandu</span></p>
                   <p>Own architecture and delivery for Research 360, LETS and Fontplus — scalable deployment, ML font‑impression analysis, Cloudflare edge and bot protection.</p>
-                  <ul class="tags"><li>AWS</li><li>React</li><li>Cloudflare</li></ul>
+                  <details class="camp-more"><summary>Field report</summary><ul><li>Owned architecture for Research 360 — raw font metadata turned into a structured analysis and licensing platform.</li><li>Scalable deployment strategies for high‑traffic font services (LETS, Fontplus); better reliability and release safety.</li><li>ML‑driven font impression and emotion analysis.</li><li>Full‑stack .NET, React and AWS; performance through loading and data‑throughput optimizations.</li><li>Cloudflare edge and bot protection; monitoring and alerting.</li></ul></details>
+                  <ul class="tags"><li>AWS</li><li>ML</li><li>Cloudflare</li></ul>
                 </article>
               </li>
             </ol>
@@ -391,7 +486,7 @@
           <div class="offmap-head">
             <h3 class="h3" data-reveal>Off the map <em>— private &amp; enterprise</em></h3>
             <div class="filters" role="group" aria-label="Filter private work" data-filters>
-              <button type="button" aria-pressed="true" data-filter="all">All <sup>12</sup></button>
+              <button type="button" aria-pressed="true" data-filter="all">All <sup>13</sup></button>
               <button type="button" aria-pressed="false" data-filter="platform">Platforms</button>
               <button type="button" aria-pressed="false" data-filter="commerce">Commerce &amp; ops</button>
               <button type="button" aria-pressed="false" data-filter="public">Public sector</button>
@@ -399,6 +494,7 @@
             </div>
           </div>
           <ul class="offmap-grid" data-offmap>
+            <li class="om-card" data-cat="platform"><p class="om-cat">Agentic system · Monotype</p><h4>Corporate Footprint Mapper</h4><p>Agents map a company’s legal entities from ultimate parent to nth subsidiary, with brands, websites, apps and digital assets.</p><p class="om-stack">AI agents · scraping · entity mapping</p></li>
             <li class="om-card" data-cat="platform"><p class="om-cat">Internal platform</p><h4>Research 360</h4><p>Raw font metadata turned into a structured analysis and licensing platform, with ML impression and emotion analysis.</p><p class="om-stack">React · Next.js · NestJS · AWS</p></li>
             <li class="om-card" data-cat="platform"><p class="om-cat">Enterprise platform</p><h4>HP Workforce Experience Platform</h4><p>Microservices and OpenAPI‑described REST APIs behind a lazy‑loaded React front‑end.</p><p class="om-stack">.NET · React · AWS · Terraform</p></li>
             <li class="om-card" data-cat="public"><p class="om-cat">Government · State of Colorado</p><h4>Unemployment Insurance Web App</h4><p>Workflow, document and profile management behind API Gateway.</p><p class="om-stack">.NET Core · Angular 18 · React · AWS</p></li>
@@ -435,7 +531,7 @@
           <div class="wrap stratum-in">
             <p class="s-depth">Layer 01 · Sky</p>
             <h3>AI &amp; LLMs</h3>
-            <ul class="chips"><li>LLM apps &amp; RAG</li><li>Agents &amp; tool use</li><li>AWS Bedrock · SageMaker</li><li>Azure OpenAI</li><li>OpenAI · Anthropic APIs</li><li>Ollama · Hugging Face</li><li>spaCy · NLP</li><li>Python · FastAPI</li></ul>
+            <ul class="chips"><li>LLM apps &amp; RAG</li><li>Agents &amp; tool use</li><li>Vector search &amp; agent memory</li><li>Scraping &amp; entity mapping</li><li>UNet · Siamese · VAE</li><li>Prophet · SARIMA · LSTM</li><li>AWS Bedrock · SageMaker</li><li>Azure OpenAI</li><li>OpenAI · Anthropic APIs</li><li>ONNX · drift detection</li><li>Ollama · Hugging Face</li><li>spaCy · Python</li></ul>
           </div>
         </div>
         <div class="stratum" data-pattern="air" style="--i:1">
@@ -526,12 +622,23 @@
         </div>
         <ul class="contact-links" data-reveal style="--d:.2s">
           <li><a href="https://www.linkedin.com/in/sanjaya-maharjan" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/sanjayamaharjancodes" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
           <li><a href="assets/cv.pdf" target="_blank" rel="noopener">Résumé (PDF) <span aria-hidden="true">↗</span></a></li>
           <li class="ktm">It’s <time data-clock-long>--:--</time> in Kathmandu</li>
         </ul>
       </div>
     </section>
   </main>
+
+  <dialog class="report" data-report aria-labelledby="report-title">
+    <div class="report-in">
+      <p class="report-when" data-report-when></p>
+      <h3 class="report-title" id="report-title" data-report-title></h3>
+      <p class="report-org" data-report-org></p>
+      <ul class="report-list" data-report-list></ul>
+      <form method="dialog"><button class="report-close" type="submit">Close <span aria-hidden="true">×</span></button></form>
+    </div>
+  </dialog>
 
   <footer class="foot">
     <div class="wrap foot-in">

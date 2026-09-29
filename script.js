@@ -507,6 +507,123 @@ void main(){
   }
 
   /* ------------------------------------------------------------------
+     02 FOOTPRINT — agents grow an ownership tree, parent to nth child
+     ------------------------------------------------------------------ */
+  function initTree() {
+    const svg = $('[data-tree]');
+    if (!svg) return;
+    const log = $$('[data-tree-log] li');
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, parent) => { const n = d.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
+    // illustrative group: [id, parent, label, kind, x, y]; kind: root | entity | brand | leaf
+    const spec = [
+      ['p', null, 'Ultimate parent', 'root', 260, 36],
+      ['a', 'p', 'Holding · EU', 'entity', 95, 120],
+      ['a1', 'a', 'Sub · DE', 'entity', 44, 204],
+      ['a1a', 'a1', 'Sub · AT', 'entity', 44, 288],
+      ['l1', 'a1a', 'domain', 'leaf', 44, 362],
+      ['a2', 'a', 'Brand', 'brand', 128, 204],
+      ['l2', 'a2', 'web', 'leaf', 112, 362],
+      ['l3', 'a2', 'app', 'leaf', 146, 362],
+      ['b', 'p', 'Subsidiary · US|Sub · US', 'entity', 260, 120],
+      ['b1', 'b', 'Sub · CA', 'entity', 222, 204],
+      ['l4', 'b1', 'web', 'leaf', 222, 362],
+      ['b2', 'b', 'Brand', 'brand', 308, 204],
+      ['l5', 'b2', 'web', 'leaf', 290, 362],
+      ['l6', 'b2', 'app', 'leaf', 326, 362],
+      ['c', 'p', 'Subsidiary · JP|Sub · JP', 'entity', 425, 120],
+      ['c1', 'c', 'Brand', 'brand', 388, 204],
+      ['l7', 'c1', 'store', 'leaf', 388, 362],
+      ['c2', 'c', 'Sub · KR', 'entity', 474, 204],
+      ['c2a', 'c2', 'Sub · SG', 'entity', 474, 288],
+      ['l8', 'c2a', 'asset', 'leaf', 474, 362],
+    ];
+    const by = {};
+    const items = spec.map(([id, parent, lab, kind, x, y]) => {
+      const [label, short] = lab.split('|');
+      return (by[id] = { id, parent, label, short: short || label, kind, x, y });
+    });
+    const eG = el('g', {}, svg), nG = el('g', {}, svg);
+    items.forEach((it) => {
+      const leaf = it.kind === 'leaf';
+      if (it.parent) {
+        const pa = by[it.parent];
+        const y0 = pa.y + 11, y1 = leaf ? it.y - 5 : it.y - 11, my = (y0 + y1) / 2;
+        it.edge = el('path', { d: `M${pa.x} ${y0}C${pa.x} ${my} ${it.x} ${my} ${it.x} ${y1}`, class: 'tr-edge' + (leaf ? ' leaf' : ''),
+          pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1 }, eG);
+      }
+      if (leaf) {
+        it.g = el('g', { class: 'tr-node tr-leaf' }, nG);
+        el('circle', { cx: it.x, cy: it.y, r: 4 }, it.g);
+        el('text', { x: it.x, y: it.y + 17, 'text-anchor': 'middle' }, it.g).textContent = it.label;
+      } else {
+        it.g = el('g', { class: `tr-node ${it.kind}` }, nG);
+        const w = it.label.length * 6.4 + 18;
+        it.rect = el('rect', { x: it.x - w / 2, y: it.y - 11, width: w, height: 22, rx: 2 }, it.g);
+        it.text = el('text', { x: it.x, y: it.y + 3.5, 'text-anchor': 'middle' }, it.g);
+        it.text.textContent = it.label;
+      }
+    });
+    // size each box from its rendered label (the phone layout uses a larger font)
+    const fit = () => items.forEach((it) => {
+      if (!it.rect) return;
+      const narrow = svg.getBoundingClientRect().width < 440;
+      it.text.textContent = narrow ? it.short : it.label;
+      const w = it.text.getBBox().width + 16;
+      if (w > 16) { it.rect.setAttribute('x', (it.x - w / 2).toFixed(1)); it.rect.setAttribute('width', w.toFixed(1)); }
+    });
+    fit();
+    onResize.push(fit);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit);
+    const crawler = el('circle', { r: 4, class: 'tr-crawler', opacity: 0 }, svg);
+    const hud = el('text', { x: 260, y: 414, 'text-anchor': 'middle', class: 'tr-hud' }, svg);
+    const counts = { entity: 0, brand: 0, leaf: 0 };
+    const setHud = () => {
+      hud.innerHTML = `Illustrative run · entities <tspan class="n">${counts.entity}</tspan> · brands <tspan class="n">${counts.brand}</tspan> · footprint <tspan class="n">${counts.leaf}</tspan>`;
+    };
+    const totals = { entity: items.filter((i) => i.kind === 'entity' || i.kind === 'root').length, brand: items.filter((i) => i.kind === 'brand').length, leaf: items.filter((i) => i.kind === 'leaf').length };
+    if (reduced) {
+      items.forEach((it) => { it.g.classList.add('is-found'); if (it.edge) it.edge.setAttribute('stroke-dashoffset', 0); });
+      Object.assign(counts, totals); setHud();
+      log.forEach((li) => li.classList.add('is-done'));
+      return;
+    }
+    const STEP = 380, HOLD = 2600, LOOP = items.length * STEP + HOLD;
+    const stepOf = (kind) => ({ root: 0, entity: 1, brand: 2, leaf: 3 })[kind];
+    // reveal phase by phase (parent → subsidiaries by depth → brands → footprint) so the log only moves forward
+    const depth = (it) => (it.parent ? 1 + depth(by[it.parent]) : 0);
+    const seq = items.slice().sort((a, b) => stepOf(a.kind) - stepOf(b.kind) || depth(a) - depth(b) || a.x - b.x);
+    let visible = false, t0 = 0;
+    new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting && !visible) t0 = performance.now();
+      visible = e.isIntersecting;
+    }), { threshold: 0.25 }).observe(svg);
+    tickers.push(() => {
+      if (!visible) return;
+      const m = (performance.now() - t0) % LOOP;
+      const cur = Math.floor(m / STEP);
+      counts.entity = 0; counts.brand = 0; counts.leaf = 0;
+      seq.forEach((it, i) => {
+        const k = clamp((m - i * STEP) / STEP, 0, 1);
+        if (it.edge) it.edge.setAttribute('stroke-dashoffset', (1 - k).toFixed(3));
+        const found = k >= 0.7;
+        it.g.classList.toggle('is-found', found);
+        it.g.classList.toggle('is-current', i === cur);
+        if (found) counts[it.kind === 'root' ? 'entity' : it.kind]++;
+        if (i === cur && it.edge && k < 1) {
+          const pt = it.edge.getPointAtLength(k * it.edge.getTotalLength());
+          crawler.setAttribute('cx', pt.x.toFixed(1)); crawler.setAttribute('cy', pt.y.toFixed(1)); crawler.setAttribute('opacity', 1);
+        }
+      });
+      if (cur >= seq.length || !seq[cur].edge) crawler.setAttribute('opacity', 0);
+      setHud();
+      const step = cur >= seq.length ? 4 : stepOf(seq[cur].kind);
+      log.forEach((li, i) => { li.classList.toggle('is-active', i === step); li.classList.toggle('is-done', i < step); });
+      state.treeStep = step;
+    });
+  }
+
+  /* ------------------------------------------------------------------
      02 AGENTS — replays one real governance cycle around the Reviewer gate
      ------------------------------------------------------------------ */
   function initAgents() {
@@ -801,6 +918,32 @@ void main(){
   }
 
   /* ------------------------------------------------------------------
+     Field reports — full role detail; a dialog on the sideways ascent
+     ------------------------------------------------------------------ */
+  function initReports() {
+    const dlg = $('[data-report]');
+    if (!dlg || !dlg.showModal) return;
+    const when = $('[data-report-when]'), title = $('[data-report-title]'), org = $('[data-report-org]'), list = $('[data-report-list]');
+    $$('.camp-more summary').forEach((sum) => {
+      sum.addEventListener('click', (e) => {
+        if (state.ascentMode !== 'horizontal') return;          // phones / vertical: expand inline
+        e.preventDefault();
+        const art = sum.closest('article');
+        when.textContent = $('.camp-when', art).textContent;
+        title.textContent = $('h3', art).textContent;
+        const orgEl = $('.camp-org', art), loc = $('span', orgEl);
+        const company = [...orgEl.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').replace(/\s+/g, ' ').trim();
+        org.textContent = loc ? `${company} · ${loc.textContent.trim()}` : company;
+        list.innerHTML = $('.camp-more ul', art).innerHTML;
+        dlg.showModal();
+        state.reportOpen = true;
+      });
+    });
+    dlg.addEventListener('close', () => { state.reportOpen = false; });
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });   // click on the backdrop
+  }
+
+  /* ------------------------------------------------------------------
      04 WORK — cursor-following survey tile + filterable private work
      ------------------------------------------------------------------ */
   function initWork() {
@@ -934,7 +1077,7 @@ void main(){
     draw();
     onResize.push(draw);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(draw);
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { wrap.classList.add('is-in'); io.disconnect(); } }), { threshold: 0.18 });
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { wrap.classList.add('is-in'); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -15% 0px' });
     io.observe(wrap);
   }
 
@@ -1103,8 +1246,10 @@ void main(){
   safe('hero', initHero);
   safe('reveals', initReveals);
   safe('words', initWords);
+  safe('tree', initTree);
   safe('agents', initAgents);
   safe('ascent', initAscent);
+  safe('reports', initReports);
   safe('work', initWork);
   safe('filters', initFilters);
   safe('strata', initStrata);

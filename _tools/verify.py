@@ -55,12 +55,22 @@ def static_checks():
     found = set(EMAILS.findall(html)) | set(EMAILS.findall(js))
     check(found == {EMAIL}, f"the only email address on the site is {EMAIL}", sorted(found))
     check(html.count(EMAIL) >= 3, f"new email {EMAIL} is used for contact links")
+    for f in ["assets/favicon.svg", "assets/favicon-32.png", "assets/apple-touch-icon.png"]:
+        check(f in html and (ROOT / f).exists(), f"{f} exists and is linked")
+    try:
+        from PIL import Image
+        im = Image.open(ROOT / "assets" / "apple-touch-icon.png").convert("RGB")
+        dark = sum(1 for px in im.getdata() if sum(px) < 150) / (im.width * im.height)
+        check(dark > 0.4, f"touch icon actually rendered (dark tile {dark:.0%}), not a broken-image placeholder")
+    except ImportError:
+        pass
     try:
         import pymupdf
         doc = pymupdf.open(ROOT / "assets" / "cv.pdf")
         txt = "".join(p.get_text() for p in doc)
         check(not re.search(r"\d{3}[-. )]\d{3}[-. ]\d{4}", txt), "cv.pdf contains no phone number")
         check(set(EMAILS.findall(txt)) == {EMAIL}, "cv.pdf carries the new email only", sorted(set(EMAILS.findall(txt))))
+        check("AI & Cloud Architect" in txt and "Lead Software Engineer | Cloud-Native" not in txt, "cv.pdf title matches the site (AI & Cloud Architect)")
     except ImportError:
         check(False, "pymupdf missing - cannot inspect cv.pdf")
 
@@ -170,6 +180,23 @@ def journey(page, url, label, shots, desktop):
         page.wait_for_timeout(1500)
         page.screenshot(path=str(shots / f"{label}-07-contact.png"))
 
+    # ownership tree grows when on screen
+    page.evaluate("document.querySelector('[data-tree]').scrollIntoView({block:'center'})")
+    page.wait_for_timeout(600)
+    t1 = page.evaluate("() => document.querySelectorAll('[data-tree] .is-found').length")
+    page.wait_for_timeout(2400)
+    t2 = page.evaluate("() => document.querySelectorAll('[data-tree] .is-found').length")
+    check(t2 > t1, f"ownership tree grows node by node ({t1} -> {t2} found)")
+    steps = []
+    for _ in range(14):
+        steps.append(page.evaluate("() => window.__sm.treeStep"))
+        page.wait_for_timeout(300)
+    back = [(a, b) for a, b in zip(steps, steps[1:]) if b < a and not (a == 4 and b == 0)]
+    check(not back, f"tree step log only moves forward ({steps})")
+    if shots:
+        page.wait_for_timeout(3600)
+        page.screenshot(path=str(shots / f"{label}-02c-tree.png"))
+
     # agent diagram replays its cycle when on screen
     page.evaluate("document.querySelector('[data-agents]').scrollIntoView({block:'center'})")
     page.wait_for_timeout(700)
@@ -183,6 +210,32 @@ def journey(page, url, label, shots, desktop):
         page.evaluate("document.querySelector('#ai').scrollIntoView()")
         page.wait_for_timeout(1500)
         page.screenshot(path=str(shots / f"{label}-02a-ai.png"))
+
+    # field reports: dialog on the sideways ascent, inline on phones
+    if desktop:
+        page.evaluate("window.scrollTo({top: document.querySelector('[data-ascent-pin]').getBoundingClientRect().top + scrollY + 1100, behavior: 'instant'})")
+        page.wait_for_timeout(1000)
+        clipped = page.evaluate("() => [...document.querySelectorAll('.camp article')].filter(a => { const r = a.getBoundingClientRect(); return r.bottom > innerHeight - 40 || r.top < 60 }).map(a => a.querySelector('h3').textContent)")
+        check(not clipped, "none of the nine ascent cards runs off the top or bottom of the pinned view", clipped)
+        vis = page.evaluate("() => [...document.querySelectorAll('.camp-more summary')].findIndex(s => { const r = s.getBoundingClientRect(); return r.left > 0 && r.right < innerWidth && r.top > 0 && r.bottom < innerHeight })")
+        if vis >= 0:
+            page.locator('.camp-more summary').nth(vis).click()
+            page.wait_for_timeout(600)
+            rep = page.evaluate("() => [document.querySelector('[data-report]').open, document.querySelectorAll('[data-report-list] li').length]")
+            check(rep[0] and rep[1] >= 2, f"field report opens as a dialog ({rep[1]} items)", rep)
+            if shots:
+                page.screenshot(path=str(shots / f"{label}-03b-report.png"))
+            page.keyboard.press("Escape")
+            page.wait_for_timeout(300)
+            check(not page.evaluate("document.querySelector('[data-report]').open"), "Escape closes the field report")
+        else:
+            check(False, "a field report button is reachable on the ascent")
+    else:
+        page.evaluate("document.querySelectorAll('.camp-more summary')[4].scrollIntoView({block:'center'})")
+        page.locator('.camp-more summary').nth(4).click()
+        page.wait_for_timeout(400)
+        n_open = page.evaluate("() => document.querySelectorAll('.camp-more[open] li').length")
+        check(n_open >= 3, f"field report expands inline on phones ({n_open} items)")
 
     # anchors resolve
     missing = page.evaluate("() => [...document.querySelectorAll('a[href^=\"#\"]')].map(a => a.getAttribute('href')).filter(h => h.length > 1 && !document.querySelector(h))")
@@ -198,7 +251,7 @@ def journey(page, url, label, shots, desktop):
     page.click("[data-filter='all']")
     page.wait_for_timeout(400)
     n = page.evaluate("() => document.querySelectorAll('.om-card:not(.is-hidden)').length")
-    check(n == 12, f"'All' filter restores 12 projects (got {n})")
+    check(n == 13, f"'All' filter restores 13 projects (got {n})")
 
     if desktop:
         page.evaluate("document.querySelector('.work-list').scrollIntoView({block:'center'})")

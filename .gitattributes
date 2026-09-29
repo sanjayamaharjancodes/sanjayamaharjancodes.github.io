@@ -1,0 +1,6 @@
+# Binary assets: never normalise line endings (an ASCII PDF would be corrupted by CRLF conversion)
+*.pdf binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.gif binary

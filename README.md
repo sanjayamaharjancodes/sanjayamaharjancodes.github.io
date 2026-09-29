@@ -17,6 +17,7 @@ Night (umber) and Day (paper map) themes, toggled with a View-Transition wipe.
 | `script.js` | Terrain shader + its CPU mirror, hero, ascent, work preview, filters, strata, nav/theme. Each module fails soft. |
 | `assets/` | `cv.pdf` (phone number removed), `portrait.jpg/.webp`, `og.jpg` social card. |
 | `_tools/verify.py` | Verification probe (not served — Jekyll skips `_` folders). |
+| `_tools/build_cv.py` | Rebuilds `assets/cv.pdf` from the same facts the site states — run it after editing roles or AI work. |
 
 Adding a role: add an `<li class="camp" data-start="YYYY.f">` to the ascent list in chronological
 order — the ridge, altitude and HUD are computed from `data-start`.
