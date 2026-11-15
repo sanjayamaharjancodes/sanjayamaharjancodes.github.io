@@ -4,6 +4,10 @@
 
 Every line here mirrors copy on the site (index.html) or the original CV; nothing is added
 that the site does not also say. No phone numbers, by design.
+
+Since 15 Nov 2026 the committed assets/cv.pdf is a byte copy of the AI & Cloud Architect CV sent to
+employers on 7 Nov 2026 (sha256 cb8872129c43e034...). This script states the same text (header,
+work-authorization line, dates), so a rebuild keeps the content but not the exact file the employers have.
 """
 import pathlib
 
@@ -26,6 +30,7 @@ S = {
     "name": ParagraphStyle("name", **{**base, "fontName": "Helvetica-Bold", "fontSize": 22, "leading": 25}),
     "title": ParagraphStyle("title", **{**base, "fontSize": 11.5, "leading": 15, "textColor": ACCENT}),
     "contact": ParagraphStyle("contact", **{**base, "fontSize": 8.4, "leading": 11, "textColor": MUTED}),
+    "auth": ParagraphStyle("auth", **{**base, "fontSize": 8.6, "leading": 11.2}),
     "h": ParagraphStyle("h", **{**base, "fontName": "Helvetica-Bold", "fontSize": 9.2, "leading": 12, "textColor": ACCENT, "spaceBefore": 9, "spaceAfter": 3}),
     "role": ParagraphStyle("role", **{**base, "fontName": "Helvetica-Bold", "fontSize": 9.7, "leading": 12.6}),
     "meta": ParagraphStyle("meta", **{**base, "fontSize": 8.3, "leading": 10.6, "textColor": MUTED}),
@@ -60,9 +65,12 @@ def role(title, org, when, items):
 story = [
     Paragraph("Sanjaya Maharjan", S["name"]),
     Paragraph("AI &amp; Cloud Architect", S["title"]),
-    Paragraph("Kathmandu, Nepal (UTC+5:45) · open to relocation and remote · smaharjan.codes@gmail.com<br/>"
+    Paragraph("Kathmandu, Nepal (UTC+5:45) · ready to relocate to the US · smaharjan.codes@gmail.com<br/>"
               "linkedin.com/in/sanjaya-maharjan · github.com/sanjayamaharjancodes · sanjayamaharjancodes.github.io", S["contact"]),
-    Spacer(1, 4),
+    Spacer(1, 3),
+    Paragraph("<b>US work authorization:</b> H-1B cap-exempt. I was counted under the cap before, so a new employer "
+              "can file in any month with no lottery. About four years of H-1B time remain.", S["auth"]),
+    Spacer(1, 2),
     *h("Summary"),
     Paragraph("AI and cloud architect with fourteen years of production engineering since 2012. I build AI agents and LLM applications, "
               "including an agentic corporate-footprint mapper for Monotype, and the platforms they run on: .NET microservices and secure APIs, "
@@ -87,18 +95,18 @@ story = [
     ]),
 
     *h("Experience"),
-    role("Lead Software Engineer", "UBA Solutions (Monotype partner), Kathmandu", "2024 – Present", [
+    role("Lead Software Engineer", "UBA Solutions (Monotype partner), Kathmandu", "Jul 2025 – Present", [
         "Own architecture for Research 360, which turns raw font metadata into a structured analysis and licensing platform.",
         "Set scalable deployment strategies for high-traffic font services (LETS, Fontplus), improving reliability and release safety.",
         "ML-driven font impression and emotion analysis; full-stack .NET, React and AWS, with performance gains from loading and data-throughput optimizations.",
         "Set up Cloudflare edge delivery and bot protection, with monitoring and alerting.",
     ]),
-    role("Senior Software Engineer", "HP Inc., Texas", "2024 – 2025", [
+    role("Senior Software Engineer", "HP Inc., Texas", "Oct 2024 – Mar 2025", [
         "Owned microservices design and AWS delivery (ECS, RDS, Lambda, VPC) for the HP Workforce Experience Platform.",
         "Architected secure REST APIs (OpenAPI/Swagger) with OAuth/JWT and secrets management; automated Terraform and Azure DevOps CI/CD.",
         "Improved React performance with lazy loading and route preloading, and built reusable TypeScript components.",
     ]),
-    role("Senior Software Engineer", "Deloitte, Colorado", "2023 – 2024", [
+    role("Senior Software Engineer", "Deloitte, Colorado", "Oct 2023 – Sep 2024", [
         "Led API platform delivery for the State of Colorado's unemployment insurance platform: OAuth and API-key security, traffic management, analytics.",
         "Built workflow microservices and API Gateway integration with the IBM content engine on .NET Core; implemented SQS-backed async workloads and Redis caching.",
         "Delivered document and profile management in Angular 18 and React, with SSO, high availability and Azure DevOps CI/CD.",
