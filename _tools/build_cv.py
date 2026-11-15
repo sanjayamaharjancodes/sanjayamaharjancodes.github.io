@@ -5,9 +5,8 @@
 Every line here mirrors copy on the site (index.html) or the original CV; nothing is added
 that the site does not also say. No phone numbers, by design.
 
-Since 15 Nov 2026 the committed assets/cv.pdf is a byte copy of the AI & Cloud Architect CV sent to
-employers on 7 Nov 2026 (sha256 cb8872129c43e034...). This script states the same text (header,
-work-authorization line, dates), so a rebuild keeps the content but not the exact file the employers have.
+The committed assets/cv.pdf is the current CV file (sha256 cb8872129c43e034...). This script states
+the same text (header, work-authorization line, dates), so a rebuild keeps the content but not the exact file.
 """
 import pathlib
 

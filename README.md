@@ -15,9 +15,9 @@ Night (umber) and Day (paper map) themes, toggled with a View-Transition wipe.
 | `index.html` | All content (roles, projects, credentials, contact). Edit copy here. |
 | `styles.css` | Tokens for both themes at the top (`:root` / `[data-theme="day"]`), then sections in page order. |
 | `script.js` | Terrain shader + its CPU mirror, hero, ascent, work preview, filters, strata, nav/theme. Each module fails soft. |
-| `assets/` | `cv.pdf` (the AI & Cloud Architect CV sent to employers on 7 Nov 2026, byte for byte; no phone number), `portrait.jpg/.webp`, `og.jpg` social card. |
+| `assets/` | `cv.pdf` (the current CV, AI & Cloud Architect; no phone number), `portrait.jpg/.webp`, `og.jpg` social card. |
 | `_tools/verify.py` | Verification probe (not served — Jekyll skips `_` folders). |
-| `_tools/build_cv.py` | States the same text as `assets/cv.pdf`. Running it replaces the sent file with a rebuild, so run it only when the roles or AI work change. |
+| `_tools/build_cv.py` | States the same text as `assets/cv.pdf`. Running it replaces the current file with a rebuild, so run it only when the roles or AI work change. |
 
 Adding a role: add an `<li class="camp" data-start="YYYY.f">` to the ascent list in chronological
 order — the ridge, altitude and HUD are computed from `data-start`.
